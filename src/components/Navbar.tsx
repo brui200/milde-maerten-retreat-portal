@@ -9,20 +9,6 @@ import { Button } from '@/components/ui/button';
 const Navbar = () => {
   const { t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
   
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   
@@ -40,9 +26,18 @@ const Navbar = () => {
     >
       <div className="container-custom py-4 md:py-5">
         <div className="flex items-center justify-between">
-          <Link to="/" className="text-xl md:text-2xl font-medium tracking-tight text-black dark:text-white font-playfair">
-            Hotel de Milde Maerten
-          </Link>
+          <div className="flex items-center space-x-4">
+            <Link to="/" className="flex items-center">
+              <img 
+                src="/lovable-uploads/07743ccd-b02f-4593-b880-e975652ce383.png" 
+                alt="Hotel Logo" 
+                className="h-10 w-10 object-contain"
+              />
+            </Link>
+            <Link to="/" className="text-xl md:text-2xl font-medium tracking-tight text-black dark:text-white font-playfair">
+              Hotel de Milde Maerten
+            </Link>
+          </div>
           
           <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
