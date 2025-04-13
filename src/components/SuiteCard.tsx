@@ -62,16 +62,6 @@ const SuiteCard: React.FC<SuiteCardProps> = ({ suite }) => {
                   <ArrowRight size={14} />
                 </Button>
               </Link>
-              <Button 
-                size="sm" 
-                className="btn-primary"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setShowBookingCard(true);
-                }}
-              >
-                {t('suites.book')}
-              </Button>
             </div>
           </div>
         ) : (

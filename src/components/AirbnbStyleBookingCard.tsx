@@ -21,6 +21,7 @@ interface AirbnbStyleBookingCardProps {
   showBookButton?: boolean;
   compact?: boolean;
   redirectToCheckout?: boolean;
+  hideDateSelection?: boolean;
 }
 
 const AirbnbStyleBookingCard: React.FC<AirbnbStyleBookingCardProps> = ({
@@ -32,6 +33,7 @@ const AirbnbStyleBookingCard: React.FC<AirbnbStyleBookingCardProps> = ({
   showBookButton = true,
   compact = false,
   redirectToCheckout = false,
+  hideDateSelection = false,
 }) => {
   const { t } = useLanguage();
   const navigate = useNavigate();
@@ -143,70 +145,72 @@ const AirbnbStyleBookingCard: React.FC<AirbnbStyleBookingCardProps> = ({
           </div>
         ) : (
           <>
-            <div className="border rounded-md">
-              <div className="grid grid-cols-2 divide-x">
-                {/* Check-in Date */}
-                <div className="p-3">
-                  <label className="text-xs text-muted-foreground block mb-1">{t('checkIn')}</label>
-                  <Popover>
-                    <PopoverTrigger asChild>
-                      <Button
-                        variant="ghost"
-                        className="w-full justify-start text-left p-0 h-auto font-normal hover:bg-transparent"
-                      >
-                        {checkInDate ? (
-                          format(checkInDate, 'MMM d, yyyy')
-                        ) : (
-                          <span className="text-muted-foreground">{t('selectDate')}</span>
-                        )}
-                      </Button>
-                    </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0" align="start">
-                      <Calendar
-                        mode="single"
-                        selected={checkInDate}
-                        onSelect={handleCheckInChange}
-                        initialFocus
-                        disabled={(date) => date < new Date()}
-                        className="p-3 pointer-events-auto"
-                      />
-                    </PopoverContent>
-                  </Popover>
-                </div>
-                
-                {/* Check-out Date */}
-                <div className="p-3">
-                  <label className="text-xs text-muted-foreground block mb-1">{t('checkOut')}</label>
-                  <Popover>
-                    <PopoverTrigger asChild>
-                      <Button
-                        variant="ghost"
-                        className="w-full justify-start text-left p-0 h-auto font-normal hover:bg-transparent"
-                        disabled={!checkInDate}
-                      >
-                        {checkOutDate ? (
-                          format(checkOutDate, 'MMM d, yyyy')
-                        ) : (
-                          <span className="text-muted-foreground">{t('selectDate')}</span>
-                        )}
-                      </Button>
-                    </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0" align="start">
-                      <Calendar
-                        mode="single"
-                        selected={checkOutDate}
-                        onSelect={setCheckOutDate}
-                        initialFocus
-                        disabled={(date) => 
-                          date < (minCheckoutDate || new Date())
-                        }
-                        className="p-3 pointer-events-auto"
-                      />
-                    </PopoverContent>
-                  </Popover>
+            {!hideDateSelection && (
+              <div className="border rounded-md">
+                <div className="grid grid-cols-2 divide-x">
+                  {/* Check-in Date */}
+                  <div className="p-3">
+                    <label className="text-xs text-muted-foreground block mb-1">{t('checkIn')}</label>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <Button
+                          variant="ghost"
+                          className="w-full justify-start text-left p-0 h-auto font-normal hover:bg-transparent"
+                        >
+                          {checkInDate ? (
+                            format(checkInDate, 'MMM d, yyyy')
+                          ) : (
+                            <span className="text-muted-foreground">{t('selectDate')}</span>
+                          )}
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto p-0" align="start">
+                        <Calendar
+                          mode="single"
+                          selected={checkInDate}
+                          onSelect={handleCheckInChange}
+                          initialFocus
+                          disabled={(date) => date < new Date()}
+                          className="p-3 pointer-events-auto"
+                        />
+                      </PopoverContent>
+                    </Popover>
+                  </div>
+                  
+                  {/* Check-out Date */}
+                  <div className="p-3">
+                    <label className="text-xs text-muted-foreground block mb-1">{t('checkOut')}</label>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <Button
+                          variant="ghost"
+                          className="w-full justify-start text-left p-0 h-auto font-normal hover:bg-transparent"
+                          disabled={!checkInDate}
+                        >
+                          {checkOutDate ? (
+                            format(checkOutDate, 'MMM d, yyyy')
+                          ) : (
+                            <span className="text-muted-foreground">{t('selectDate')}</span>
+                          )}
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto p-0" align="start">
+                        <Calendar
+                          mode="single"
+                          selected={checkOutDate}
+                          onSelect={setCheckOutDate}
+                          initialFocus
+                          disabled={(date) => 
+                            date < (minCheckoutDate || new Date())
+                          }
+                          className="p-3 pointer-events-auto"
+                        />
+                      </PopoverContent>
+                    </Popover>
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
             
             {/* Price calculation and booking button */}
             {checkInDate && checkOutDate && (

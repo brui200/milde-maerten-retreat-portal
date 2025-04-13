@@ -12,7 +12,6 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { Card } from '@/components/ui/card';
 import { CalendarIcon } from 'lucide-react';
 import { format, addDays, differenceInDays } from 'date-fns';
-import AirbnbStyleBookingCard from '@/components/AirbnbStyleBookingCard';
 import BookingForm from '@/components/BookingForm';
 
 // Mock data for unavailable suites
@@ -210,7 +209,7 @@ const Booking = () => {
             )}
           </Card>
           
-          {/* Suites Grid - Always show but with transparency when dates aren't selected */}
+          {/* Suites Grid - Show transparent cards when dates aren't selected */}
           <div className="mb-10 animate-fade-in">
             <h2 className="text-xl font-playfair mb-4">{t('availableSuites')}</h2>
             
@@ -225,19 +224,71 @@ const Booking = () => {
                 <div 
                   key={suite.id}
                   onClick={() => datesSelected && suite.available && setSelectedSuite(suite.id)}
-                  className={`cursor-pointer transform transition duration-200 ${
+                  className={`cursor-pointer relative transform transition duration-200 ${
                     selectedSuite === suite.id ? 'scale-[1.02]' : ''
                   } ${
                     selectedSuite === suite.id ? 'ring-2 ring-primary' : ''
                   }`}
                 >
-                  <AirbnbStyleBookingCard 
-                    suite={suite}
-                    initialCheckInDate={checkInDate}
-                    initialCheckOutDate={checkOutDate}
-                    showDetailsButton={true}
-                    showBookButton={false}
-                  />
+                  {/* Card with image overlay for transparent display */}
+                  <Card className="overflow-hidden">
+                    <div className="relative">
+                      <img 
+                        src={suite.images[0]} 
+                        alt={suite.name}
+                        className="w-full h-48 object-cover"
+                      />
+                      
+                      {/* Transparent overlay when dates not selected */}
+                      {!datesSelected && (
+                        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                          <span className="text-white text-lg font-medium">
+                            {t('selectDatesFirst')}
+                          </span>
+                        </div>
+                      )}
+                      
+                      {/* Unavailable overlay */}
+                      {datesSelected && !suite.available && (
+                        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                          <span className="text-white text-lg font-medium">
+                            {t('unavailableForDates')}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                    
+                    <div className="p-4">
+                      <div className="flex justify-between">
+                        <h3 className="font-playfair text-lg">{suite.name}</h3>
+                        <div>
+                          <span className="font-playfair">€{suite.price}</span>
+                          <span className="text-sm text-muted-foreground">/{t('night')}</span>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center gap-4 mt-2 text-sm text-muted-foreground">
+                        <div className="flex items-center gap-1">
+                          <Users size={14} />
+                          <span>{suite.capacity}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Square size={14} />
+                          <span>{suite.size} m²</span>
+                        </div>
+                      </div>
+                      
+                      {datesSelected && suite.available && (
+                        <Button 
+                          className="w-full mt-4" 
+                          onClick={() => setSelectedSuite(suite.id)}
+                          variant={selectedSuite === suite.id ? "default" : "outline"}
+                        >
+                          {selectedSuite === suite.id ? t('selected') : t('selectThisSuite')}
+                        </Button>
+                      )}
+                    </div>
+                  </Card>
                 </div>
               ))}
             </div>
