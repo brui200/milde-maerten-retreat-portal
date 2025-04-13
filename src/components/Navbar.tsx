@@ -25,10 +25,10 @@ const Navbar = () => {
   
   // Dropdown items for About menu
   const aboutDropdownItems = [
-    { to: '/suites', label: t('navbar.suites') },
-    { to: '/amenities', label: t('navbar.amenities') },
-    { to: '/events', label: t('navbar.events') },
-    { to: '/history', label: t('navbar.history') },
+    { to: '/suites', label: 'Suites' },
+    { to: '/amenities', label: 'Amenities' },
+    { to: '/events', label: 'Events' },
+    { to: '/history', label: 'History' },
   ];
   
   return (
@@ -69,11 +69,11 @@ const Navbar = () => {
                 
                 {/* About Dropdown */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="flex items-center">
-                    {t('navbar.about')}
+                  <NavigationMenuTrigger>
+                    About
                     <ChevronDown className="ml-2 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180" />
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent className="bg-white/80 backdrop-blur-md border border-gray-100 shadow-lg rounded-lg">
+                  <NavigationMenuContent className="bg-white/70 backdrop-blur-md border border-gray-100 shadow-lg rounded-lg">
                     <ul className="grid w-[200px] gap-2 p-2">
                       {aboutDropdownItems.map((item) => (
                         <li key={item.to}>
@@ -135,7 +135,7 @@ const Navbar = () => {
             
             {/* About section in mobile */}
             <div className="space-y-2">
-              <div className="text-lg text-black/80 font-medium">{t('navbar.about')}</div>
+              <div className="text-lg text-black/80 font-medium">About</div>
               <div className="pl-4 space-y-2">
                 {aboutDropdownItems.map((item) => (
                   <Link 
