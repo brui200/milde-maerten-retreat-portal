@@ -37,7 +37,7 @@ const Hero: React.FC<HeroProps> = ({
       {/* Overlay with reduced opacity for better image visibility */}
       <div className="absolute inset-0 bg-black/20"></div>
       
-      {/* Content with improved contrast and centered alignment */}
+      {/* Content with improved contrast */}
       <div className="container-custom relative z-10 text-white text-center">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-white font-playfair">
