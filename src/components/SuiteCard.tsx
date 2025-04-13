@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '@/context/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Suite } from '@/data/hotelData';
-import { Users, ArrowRight, SquareMeter } from 'lucide-react';
+import { Users, ArrowRight, Square } from 'lucide-react';
 
 interface SuiteCardProps {
   suite: Suite;
@@ -34,7 +34,7 @@ const SuiteCard: React.FC<SuiteCardProps> = ({ suite }) => {
             <span>{suite.capacity} {suite.capacity === 1 ? 'guest' : 'guests'}</span>
           </div>
           <div className="flex items-center gap-1">
-            <SquareMeter size={16} />
+            <Square size={16} />
             <span>{suite.size} m²</span>
           </div>
         </div>
