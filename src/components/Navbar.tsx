@@ -32,25 +32,28 @@ const Navbar = () => {
     >
       <div className="container-custom py-4 md:py-5">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <Link to="/" className="flex items-center">
-              <img 
-                src="/lovable-uploads/07743ccd-b02f-4593-b880-e975652ce383.png" 
-                alt="Hotel Logo" 
-                className="h-16 w-16 object-contain"
-              />
-            </Link>
-            <Link 
-              to="/" 
-              className="text-xl md:text-2xl font-medium tracking-tight text-black dark:text-white font-playfair whitespace-nowrap"
-            >
-              Hotel de Milde Maerten
-            </Link>
-          </div>
-          
-          <div className="hidden md:block">
-            <div className="flex justify-end mb-2">
-              <div className="flex items-center space-x-8">
+          <div className="flex flex-grow md:flex-grow-0">
+            {/* Logo and Title on left */}
+            <div className="flex items-center">
+              <Link to="/" className="flex items-center">
+                <img 
+                  src="/lovable-uploads/07743ccd-b02f-4593-b880-e975652ce383.png" 
+                  alt="Hotel Logo" 
+                  className="h-16 w-16 object-contain"
+                />
+              </Link>
+              <Link 
+                to="/" 
+                className="text-xl md:text-2xl font-medium tracking-tight text-black dark:text-white font-playfair whitespace-nowrap"
+              >
+                Hotel de Milde Maerten
+              </Link>
+            </div>
+            
+            {/* Navigation menu for desktop */}
+            <div className="hidden md:flex flex-col ml-8">
+              {/* First row of links */}
+              <div className="flex items-center space-x-8 mb-2">
                 {firstRowLinks.map((link) => (
                   <Link 
                     key={link.to} 
@@ -61,9 +64,8 @@ const Navbar = () => {
                   </Link>
                 ))}
               </div>
-            </div>
-            
-            <div className="flex justify-end">
+              
+              {/* Second row of links */}
               <div className="flex items-center space-x-8">
                 {secondRowLinks.map((link) => (
                   <Link 
@@ -74,14 +76,19 @@ const Navbar = () => {
                     {link.label}
                   </Link>
                 ))}
-                <LanguageSwitcher />
-                <Link to="/booking">
-                  <Button className="btn-primary btn-hover-effect">{t('navbar.booking')}</Button>
-                </Link>
               </div>
             </div>
           </div>
           
+          {/* Right side items: Language switcher and Booking button */}
+          <div className="hidden md:flex items-center space-x-4">
+            <LanguageSwitcher />
+            <Link to="/booking">
+              <Button className="btn-primary btn-hover-effect">{t('navbar.booking')}</Button>
+            </Link>
+          </div>
+          
+          {/* Mobile menu toggle */}
           <div className="flex items-center md:hidden gap-4">
             <LanguageSwitcher />
             <button 
@@ -94,6 +101,7 @@ const Navbar = () => {
           </div>
         </div>
         
+        {/* Mobile dropdown menu */}
         {isMenuOpen && (
           <nav className="md:hidden pt-6 pb-4 flex flex-col space-y-4 glass-effect mt-2">
             {[...firstRowLinks, ...secondRowLinks].map((link) => (
