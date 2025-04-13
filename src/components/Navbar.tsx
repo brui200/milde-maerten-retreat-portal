@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/context/LanguageContext';
@@ -11,7 +10,6 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -43,12 +41,10 @@ const Navbar = () => {
     >
       <div className="container-custom py-4 md:py-5">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="text-xl md:text-2xl font-medium tracking-tight text-black dark:text-white">
+          <Link to="/" className="text-xl md:text-2xl font-medium tracking-tight text-black dark:text-white font-playfair">
             Hotel de Milde Maerten
           </Link>
           
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <Link 
@@ -65,7 +61,6 @@ const Navbar = () => {
             </Link>
           </nav>
           
-          {/* Mobile Menu Button */}
           <div className="flex items-center md:hidden gap-4">
             <LanguageSwitcher />
             <button 
@@ -78,7 +73,6 @@ const Navbar = () => {
           </div>
         </div>
         
-        {/* Mobile Navigation */}
         {isMenuOpen && (
           <nav className="md:hidden pt-6 pb-4 flex flex-col space-y-4 glass-effect mt-2">
             {navLinks.map((link) => (
