@@ -1,4 +1,3 @@
-
 export const en = {
   // Navigation
   "nav.home": "Home",
@@ -9,7 +8,7 @@ export const en = {
   "nav.book": "Book Now",
   
   // Home page
-  "home.hero.title": "Milde Maerten Hotel",
+  "home.hero.title": "Hotel de Milde Maerten",
   "home.hero.subtitle": "A monumental experience in the heart of Middelburg",
   "home.hero.cta": "Book Your Stay",
   "home.about.title": "About Us",
@@ -92,7 +91,7 @@ export const de = {
   "nav.book": "Jetzt Buchen",
   
   // Home page
-  "home.hero.title": "Milde Maerten Hotel",
+  "home.hero.title": "Hotel de Milde Maerten",
   "home.hero.subtitle": "Ein monumentales Erlebnis im Herzen von Middelburg",
   "home.hero.cta": "Buchen Sie Ihren Aufenthalt",
   "home.about.title": "Über Uns",
@@ -175,7 +174,7 @@ export const nl = {
   "nav.book": "Reserveren",
   
   // Home page
-  "home.hero.title": "Milde Maerten Hotel",
+  "home.hero.title": "Hotel de Milde Maerten",
   "home.hero.subtitle": "Een monumentale ervaring in het hart van Middelburg",
   "home.hero.cta": "Boek Uw Verblijf",
   "home.about.title": "Over Ons",
