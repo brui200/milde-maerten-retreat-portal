@@ -1,8 +1,7 @@
-
 // Import specific locales from date-fns 
 import { enUS } from 'date-fns/locale/en-US';
-import { de } from 'date-fns/locale/de';
-import { nl } from 'date-fns/locale/nl';
+import { de as deLocale } from 'date-fns/locale/de';
+import { nl as nlLocale } from 'date-fns/locale/nl';
 
 const translations = {
   en: {
@@ -311,7 +310,7 @@ const translations = {
     },
     amenities: {
       title: "Hotel Voorzieningen",
-      description: "Ontdek het aanbod aan voorzieningen dat we bieden om uw verblijf aangenamer te maken. Van dineren tot ontspanning, we hebben voor elk wat wils.",
+      description: "Ontdek het aanbod aan voorzieningen die we bieden om uw verblijf aangenamer te maken. Van dineren tot ontspanning, we hebben voor elk wat wils.",
       learnMore: "Meer Informatie",
     },
     events: {
@@ -340,9 +339,9 @@ const translations = {
 export const getLocale = (locale: string) => {
   switch (locale) {
     case 'de':
-      return de;
+      return deLocale;
     case 'nl':
-      return nl;
+      return nlLocale;
     default:
       return enUS;
   }
