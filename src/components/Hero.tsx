@@ -30,32 +30,30 @@ const Hero: React.FC<HeroProps> = ({
   const images = backgroundImages || [backgroundImage];
   
   return (
-    <div className={`relative w-full ${fullHeight ? 'h-screen' : 'h-[60vh]'} flex items-center`}>
+    <div className={`relative w-full ${fullHeight ? 'h-screen' : 'h-[60vh]'} flex items-center justify-center`}>
       {/* Image slider */}
       <HeroSlider images={images} className="absolute inset-0" />
       
       {/* Overlay with reduced opacity for better image visibility */}
       <div className="absolute inset-0 bg-black/20"></div>
       
-      {/* Content with improved contrast */}
-      <div className="container-custom relative z-10 text-white text-center">
-        <div className="max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-white font-playfair">
-            {title || t('home.hero.title')}
-          </h1>
-          <p className="mt-4 text-lg md:text-xl text-white/90 max-w-xl mx-auto font-light">
-            {subtitle || t('home.hero.subtitle')}
-          </p>
-          {ctaText && (
-            <div className="flex justify-center mt-8">
-              <Link to={ctaLink}>
-                <Button className="btn-primary">
-                  {ctaText}
-                </Button>
-              </Link>
-            </div>
-          )}
-        </div>
+      {/* Content with centered text overlay */}
+      <div className="relative z-10 text-white text-center px-4 max-w-3xl mx-auto">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-white font-playfair">
+          {title || t('home.hero.title')}
+        </h1>
+        <p className="mt-4 text-lg md:text-xl text-white/90 max-w-xl mx-auto font-light">
+          {subtitle || t('home.hero.subtitle')}
+        </p>
+        {ctaText && (
+          <div className="flex justify-center mt-8">
+            <Link to={ctaLink}>
+              <Button className="btn-primary">
+                {ctaText}
+              </Button>
+            </Link>
+          </div>
+        )}
       </div>
       
       {/* Scroll down indicator for full height hero */}
