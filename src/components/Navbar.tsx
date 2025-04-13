@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/context/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -31,7 +30,7 @@ const Navbar = () => {
               <img 
                 src="/lovable-uploads/07743ccd-b02f-4593-b880-e975652ce383.png" 
                 alt="Hotel Logo" 
-                className="h-10 w-10 object-contain"
+                className="h-16 w-16 object-contain"
               />
             </Link>
             <Link to="/" className="text-xl md:text-2xl font-medium tracking-tight text-black dark:text-white font-playfair">
