@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/context/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 import { cn } from '@/lib/utils';
+
 const Navbar = () => {
   const {
     t
@@ -57,9 +58,8 @@ const Navbar = () => {
                 
                 {/* About Dropdown */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="">
+                  <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent">
                     About
-                    <ChevronDown className="ml-2 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180" />
                   </NavigationMenuTrigger>
                   <NavigationMenuContent className="bg-white/70 backdrop-blur-md border border-gray-100 shadow-lg rounded-lg">
                     <ul className="grid w-[200px] gap-2 p-2">
