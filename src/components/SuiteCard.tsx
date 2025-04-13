@@ -1,11 +1,12 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/context/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Suite } from '@/data/hotelData';
 import { Users, ArrowRight, Square } from 'lucide-react';
 import StarRating from '@/components/StarRating';
+import AirbnbStyleBookingCard from './AirbnbStyleBookingCard';
 
 interface SuiteCardProps {
   suite: Suite;
@@ -13,6 +14,7 @@ interface SuiteCardProps {
 
 const SuiteCard: React.FC<SuiteCardProps> = ({ suite }) => {
   const { language, t } = useLanguage();
+  const [showBookingCard, setShowBookingCard] = useState(false);
   
   return (
     <div className="bg-white rounded-sm overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
@@ -47,25 +49,44 @@ const SuiteCard: React.FC<SuiteCardProps> = ({ suite }) => {
           </div>
         </div>
         
-        <div className="flex justify-between items-center pt-4 border-t border-muted">
-          <div>
-            <span className="font-playfair text-xl">€{suite.price}</span>
-            <span className="text-sm text-muted-foreground">/night</span>
-          </div>
-          <div className="flex gap-2">
-            <Link to={`/suite/${suite.id}`}>
-              <Button variant="outline" size="sm" className="gap-1">
-                {t('suites.viewDetails')}
-                <ArrowRight size={14} />
-              </Button>
-            </Link>
-            <Link to={`/booking?suite=${suite.id}`}>
-              <Button size="sm" className="btn-primary">
+        {!showBookingCard ? (
+          <div className="flex justify-between items-center pt-4 border-t border-muted">
+            <div>
+              <span className="font-playfair text-xl">€{suite.price}</span>
+              <span className="text-sm text-muted-foreground">/night</span>
+            </div>
+            <div className="flex gap-2">
+              <Link to={`/suite/${suite.id}`}>
+                <Button variant="outline" size="sm" className="gap-1">
+                  {t('suites.viewDetails')}
+                  <ArrowRight size={14} />
+                </Button>
+              </Link>
+              <Button 
+                size="sm" 
+                className="btn-primary"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setShowBookingCard(true);
+                }}
+              >
                 {t('suites.book')}
               </Button>
-            </Link>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="mt-4 animate-fade-in">
+            <AirbnbStyleBookingCard suite={suite} compact={true} showDetailsButton={false} />
+            <Button 
+              variant="ghost"
+              size="sm"
+              className="w-full mt-2 text-muted-foreground"
+              onClick={() => setShowBookingCard(false)}
+            >
+              Cancel
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );
