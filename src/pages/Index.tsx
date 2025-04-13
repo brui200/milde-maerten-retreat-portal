@@ -1,6 +1,4 @@
-
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useLanguage } from '@/context/LanguageContext';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -15,11 +13,10 @@ import { suites, amenities } from '@/data/hotelData';
 const Index = () => {
   const { t } = useLanguage();
   
-  // Only show first 3 suites and amenities on homepage
-  const featuredSuites = suites.slice(0, 3);
+  // Show all suites on the homepage instead of just the first 3
   const featuredAmenities = amenities.slice(0, 3);
   
-  // Array of hero images for the slider
+  // Hero images remain the same
   const heroImages = [
     "/lovable-uploads/70a83751-a5b6-48f6-9562-dda2ddc2d508.png",
     "/lovable-uploads/14c256fa-1d3d-42d8-9029-9c0b5d0bb551.png",
@@ -59,16 +56,12 @@ const Index = () => {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {featuredSuites.map((suite) => (
+              {suites.map((suite) => (
                 <SuiteCard key={suite.id} suite={suite} />
               ))}
             </div>
             
-            <div className="text-center mt-12">
-              <Link to="/suites">
-                <Button className="btn-secondary">{t('home.suites.viewAll')}</Button>
-              </Link>
-            </div>
+            {/* Removed 'View All Suites' button */}
           </div>
         </section>
         
