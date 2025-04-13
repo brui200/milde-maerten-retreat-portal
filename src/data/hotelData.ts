@@ -12,6 +12,7 @@ export interface Suite {
   amenities: string[];
   images: string[];
   rating?: number;
+  available?: boolean;
 }
 
 export interface Amenity {

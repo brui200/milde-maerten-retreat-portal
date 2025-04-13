@@ -18,6 +18,11 @@ import { addDays, differenceInDays, format } from 'date-fns';
 // Mock data for suite availability
 const mockUnavailableSuites = ['suite-3', 'suite-4'];
 
+// Add a type for suite with availability information
+interface AvailableSuite extends Omit<typeof suites[0], 'available'> {
+  available: boolean;
+}
+
 const BookingFlow = () => {
   const { t } = useLanguage();
   const navigate = useNavigate();
@@ -36,7 +41,7 @@ const BookingFlow = () => {
   
   // Filter available suites based on dates
   const getAvailableSuites = () => {
-    if (!datesSelected) return suites;
+    if (!datesSelected) return suites.map(suite => ({ ...suite, available: true }));
     return suites.map(suite => ({
       ...suite,
       available: !mockUnavailableSuites.includes(suite.id)
