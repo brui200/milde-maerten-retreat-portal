@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -16,6 +15,7 @@ import Events from "./pages/Events";
 import Contact from "./pages/Contact";
 import Booking from "./pages/Booking";
 import BookingFlow from "./pages/BookingFlow";
+import Checkout from "./pages/Checkout";
 import History from "./pages/History";
 import NotFound from "./pages/NotFound";
 
@@ -54,6 +54,7 @@ const AppRoutes = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/booking-flow" element={<BookingFlow />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="/history" element={<History />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

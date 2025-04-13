@@ -76,7 +76,12 @@ const SuiteCard: React.FC<SuiteCardProps> = ({ suite }) => {
           </div>
         ) : (
           <div className="mt-4 animate-fade-in">
-            <AirbnbStyleBookingCard suite={suite} compact={true} showDetailsButton={false} />
+            <AirbnbStyleBookingCard 
+              suite={suite} 
+              compact={true} 
+              showDetailsButton={false} 
+              redirectToCheckout={true}
+            />
             <Button 
               variant="ghost"
               size="sm"
