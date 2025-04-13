@@ -38,13 +38,13 @@ const Navbar = () => {
   return (
     <header 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/90 backdrop-blur-sm shadow-sm' : 'bg-transparent'
+        scrolled ? 'bg-black/70 backdrop-blur-sm shadow-sm' : 'bg-black/40 backdrop-blur-sm'
       }`}
     >
       <div className="container-custom py-4 md:py-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="text-xl md:text-2xl font-serif tracking-tight">
+          <Link to="/" className="text-xl md:text-2xl font-serif tracking-tight text-white font-bold">
             Milde Maerten
           </Link>
           
@@ -54,7 +54,7 @@ const Navbar = () => {
               <Link 
                 key={link.to} 
                 to={link.to} 
-                className="text-sm text-hotel-charcoal hover:text-hotel-brown transition-colors"
+                className="text-sm text-white hover:text-hotel-cream transition-colors"
               >
                 {link.label}
               </Link>
@@ -70,7 +70,7 @@ const Navbar = () => {
             <LanguageSwitcher />
             <button 
               onClick={toggleMenu}
-              className="text-hotel-charcoal focus:outline-none"
+              className="text-white focus:outline-none"
               aria-label="Toggle menu"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -80,12 +80,12 @@ const Navbar = () => {
         
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden pt-6 pb-4 flex flex-col space-y-4">
+          <nav className="md:hidden pt-6 pb-4 flex flex-col space-y-4 bg-black/90">
             {navLinks.map((link) => (
               <Link 
                 key={link.to} 
                 to={link.to} 
-                className="text-lg text-hotel-charcoal py-2"
+                className="text-lg text-white py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.label}

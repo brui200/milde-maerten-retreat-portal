@@ -25,19 +25,24 @@ const Hero: React.FC<HeroProps> = ({
   
   return (
     <div 
-      className={`relative w-full ${fullHeight ? 'h-screen' : 'h-[60vh]'} bg-cover bg-center flex items-center`}
-      style={{ backgroundImage: `url(${backgroundImage})` }}
+      className={`relative w-full ${fullHeight ? 'h-screen' : 'h-[60vh]'} flex items-center`}
+      style={{ 
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
     >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/30"></div>
+      {/* Overlay with increased opacity for better text visibility */}
+      <div className="absolute inset-0 bg-black/50"></div>
       
-      {/* Content */}
+      {/* Content with improved contrast */}
       <div className="container-custom relative z-10 text-white">
-        <div className="max-w-3xl fade-in">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif">
+        <div className="max-w-3xl">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white">
             {title || t('home.hero.title')}
           </h1>
-          <p className="mt-4 text-lg md:text-xl">
+          <p className="mt-4 text-lg md:text-xl text-white">
             {subtitle || t('home.hero.subtitle')}
           </p>
           {ctaText && (
