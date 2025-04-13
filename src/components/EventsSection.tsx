@@ -19,8 +19,8 @@ const EventsSection: React.FC<EventsSectionProps> = ({ alternative = false }) =>
           <div className={`${alternative ? 'order-1 md:order-1' : 'order-1 md:order-2'}`}>
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1623170095789-a1d37891e67e?q=80&w=2574" 
-                alt="Church Venue" 
+                src="/lovable-uploads/14c256fa-1d3d-42d8-9029-9c0b5d0bb551.png" 
+                alt="Garden View" 
                 className="w-full h-auto object-cover rounded-sm shadow-xl"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-sm"></div>

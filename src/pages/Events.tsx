@@ -20,7 +20,7 @@ const Events = () => {
           title={t('events.title')} 
           subtitle={t('events.subtitle')} 
           fullHeight={false}
-          backgroundImage="https://images.unsplash.com/photo-1623170095789-a1d37891e67e?q=80&w=2574"
+          backgroundImage="/lovable-uploads/14c256fa-1d3d-42d8-9029-9c0b5d0bb551.png"
         />
         
         {/* Church Venue Details */}
@@ -98,23 +98,23 @@ const Events = () => {
               
               <div className="grid grid-cols-2 gap-4">
                 <img 
-                  src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=2670" 
-                  alt="Church venue wedding" 
+                  src="/lovable-uploads/70a83751-a5b6-48f6-9562-dda2ddc2d508.png" 
+                  alt="Garden view" 
                   className="w-full h-auto object-cover rounded-sm"
                 />
                 <img 
-                  src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2598" 
-                  alt="Church venue concert" 
+                  src="/lovable-uploads/da579815-7db1-4a99-baf5-d241d4fcc53c.png" 
+                  alt="Hotel facade" 
                   className="w-full h-auto object-cover rounded-sm"
                 />
                 <img 
-                  src="https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=2670" 
-                  alt="Church venue conference" 
+                  src="/lovable-uploads/14c256fa-1d3d-42d8-9029-9c0b5d0bb551.png" 
+                  alt="Garden seating area" 
                   className="w-full h-auto object-cover rounded-sm"
                 />
                 <img 
-                  src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?q=80&w=2670" 
-                  alt="Church venue exhibition" 
+                  src="/lovable-uploads/70a83751-a5b6-48f6-9562-dda2ddc2d508.png" 
+                  alt="Garden landscape" 
                   className="w-full h-auto object-cover rounded-sm"
                 />
               </div>

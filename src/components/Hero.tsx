@@ -14,7 +14,7 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({
-  backgroundImage = "/lovable-uploads/3a652c95-3db8-42d1-92f2-d334b48d2025.png",
+  backgroundImage = "/lovable-uploads/70a83751-a5b6-48f6-9562-dda2ddc2d508.png",
   title,
   subtitle,
   ctaText,

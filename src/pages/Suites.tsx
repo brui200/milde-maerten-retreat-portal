@@ -20,7 +20,7 @@ const Suites = () => {
           title={t('suites.title')} 
           subtitle={t('suites.subtitle')} 
           fullHeight={false}
-          backgroundImage="https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=2670"
+          backgroundImage="/lovable-uploads/da579815-7db1-4a99-baf5-d241d4fcc53c.png"
         />
         
         {/* Suites Grid */}
