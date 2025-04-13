@@ -5,17 +5,22 @@ import { useLanguage } from '@/context/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Navbar = () => {
   const { t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isMobile = useIsMobile();
   
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   
-  const navLinks = [
+  const firstRowLinks = [
     { to: '/', label: t('navbar.home') },
     { to: '/suites', label: t('navbar.suites') },
     { to: '/amenities', label: t('navbar.amenities') },
+  ];
+  
+  const secondRowLinks = [
     { to: '/history', label: t('navbar.history') },
     { to: '/events', label: t('navbar.events') },
     { to: '/contact', label: t('navbar.contact') },
@@ -43,21 +48,35 @@ const Navbar = () => {
             </Link>
           </div>
           
-          <nav className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link 
-                key={link.to} 
-                to={link.to} 
-                className="text-sm text-black/80 hover:text-black transition-colors duration-300 nav-link"
-              >
-                {link.label}
+          <div className="hidden md:flex flex-col items-end">
+            <div className="flex items-center space-x-8 mb-2">
+              {firstRowLinks.map((link) => (
+                <Link 
+                  key={link.to} 
+                  to={link.to} 
+                  className="text-sm text-black/80 hover:text-black transition-colors duration-300 nav-link"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+            
+            <div className="flex items-center space-x-8">
+              {secondRowLinks.map((link) => (
+                <Link 
+                  key={link.to} 
+                  to={link.to} 
+                  className="text-sm text-black/80 hover:text-black transition-colors duration-300 nav-link"
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <LanguageSwitcher />
+              <Link to="/booking">
+                <Button className="btn-primary btn-hover-effect">{t('navbar.booking')}</Button>
               </Link>
-            ))}
-            <LanguageSwitcher />
-            <Link to="/booking">
-              <Button className="btn-primary btn-hover-effect">{t('navbar.booking')}</Button>
-            </Link>
-          </nav>
+            </div>
+          </div>
           
           <div className="flex items-center md:hidden gap-4">
             <LanguageSwitcher />
@@ -73,7 +92,7 @@ const Navbar = () => {
         
         {isMenuOpen && (
           <nav className="md:hidden pt-6 pb-4 flex flex-col space-y-4 glass-effect mt-2">
-            {navLinks.map((link) => (
+            {[...firstRowLinks, ...secondRowLinks].map((link) => (
               <Link 
                 key={link.to} 
                 to={link.to} 
