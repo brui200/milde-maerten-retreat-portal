@@ -10,7 +10,7 @@ import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Card } from '@/components/ui/card';
-import { CalendarIcon } from 'lucide-react';
+import { CalendarIcon, Users, Square } from 'lucide-react';
 import { format, addDays, differenceInDays } from 'date-fns';
 import BookingForm from '@/components/BookingForm';
 
