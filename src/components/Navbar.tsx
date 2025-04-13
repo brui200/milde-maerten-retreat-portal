@@ -48,33 +48,37 @@ const Navbar = () => {
             </Link>
           </div>
           
-          <div className="hidden md:flex flex-col items-end">
-            <div className="flex items-center space-x-8 mb-2">
-              {firstRowLinks.map((link) => (
-                <Link 
-                  key={link.to} 
-                  to={link.to} 
-                  className="text-sm text-black/80 hover:text-black transition-colors duration-300 nav-link"
-                >
-                  {link.label}
-                </Link>
-              ))}
+          <div className="hidden md:block">
+            <div className="flex justify-end mb-2">
+              <div className="flex items-center space-x-8">
+                {firstRowLinks.map((link) => (
+                  <Link 
+                    key={link.to} 
+                    to={link.to} 
+                    className="text-sm text-black/80 hover:text-black transition-colors duration-300 nav-link"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
             </div>
             
-            <div className="flex items-center space-x-8">
-              {secondRowLinks.map((link) => (
-                <Link 
-                  key={link.to} 
-                  to={link.to} 
-                  className="text-sm text-black/80 hover:text-black transition-colors duration-300 nav-link"
-                >
-                  {link.label}
+            <div className="flex justify-end">
+              <div className="flex items-center space-x-8">
+                {secondRowLinks.map((link) => (
+                  <Link 
+                    key={link.to} 
+                    to={link.to} 
+                    className="text-sm text-black/80 hover:text-black transition-colors duration-300 nav-link"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+                <LanguageSwitcher />
+                <Link to="/booking">
+                  <Button className="btn-primary btn-hover-effect">{t('navbar.booking')}</Button>
                 </Link>
-              ))}
-              <LanguageSwitcher />
-              <Link to="/booking">
-                <Button className="btn-primary btn-hover-effect">{t('navbar.booking')}</Button>
-              </Link>
+              </div>
             </div>
           </div>
           
