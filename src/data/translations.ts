@@ -1,8 +1,8 @@
 
 // Import specific locales from date-fns 
-import { enUS } from 'date-fns/locale/en-US';
-import { de as deDE } from 'date-fns/locale/de';
-import { nl as nlNL } from 'date-fns/locale/nl';
+import { enUS } from 'date-fns/locale';
+import { de } from 'date-fns/locale';
+import { nl } from 'date-fns/locale';
 
 const translations = {
   en: {
@@ -340,9 +340,9 @@ const translations = {
 export const getLocale = (locale: string) => {
   switch (locale) {
     case 'de':
-      return deDE;
+      return de;
     case 'nl':
-      return nlNL;
+      return nl;
     default:
       return enUS;
   }
