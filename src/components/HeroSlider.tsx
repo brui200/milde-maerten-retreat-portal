@@ -1,10 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-import { 
-  Carousel, 
-  CarouselContent, 
-  CarouselItem
-} from '@/components/ui/carousel';
 
 interface HeroSliderProps {
   images: string[];
@@ -18,13 +13,16 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
   className = ""
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     // Set up automatic sliding
     const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => 
-        prevIndex === images.length - 1 ? 0 : prevIndex + 1
-      );
+      setCurrentIndex((prevIndex) => {
+        const newIndex = prevIndex === images.length - 1 ? 0 : prevIndex + 1;
+        setActiveIndex(newIndex);
+        return newIndex;
+      });
     }, interval);
 
     // Clear timer on component unmount
@@ -36,35 +34,21 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
   }
 
   return (
-    <div className={`relative w-full h-full ${className}`}>
-      <Carousel
-        className="w-full h-full"
-        opts={{
-          loop: true,
-          align: "start",
-          skipSnaps: true,
-          startIndex: currentIndex,
-        }}
-      >
-        <CarouselContent className="h-full">
-          {images.map((image, index) => (
-            <CarouselItem 
-              key={index} 
-              className="h-full w-full relative"
-            >
-              <div
-                className="absolute inset-0 w-full h-full transition-opacity duration-1000"
-                style={{
-                  backgroundImage: `url(${image})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat',
-                }}
-              />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      </Carousel>
+    <div className={`relative w-full h-full overflow-hidden ${className}`}>
+      {images.map((image, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${
+            index === activeIndex ? 'opacity-100' : 'opacity-0'
+          }`}
+          style={{
+            backgroundImage: `url(${image})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+          }}
+        />
+      ))}
     </div>
   );
 };
