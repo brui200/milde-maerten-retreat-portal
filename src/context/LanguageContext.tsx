@@ -1,5 +1,6 @@
 
 import React, { createContext, useState, useContext, ReactNode } from 'react';
+import { en, de, nl } from '../data/translations';
 
 type Language = 'en' | 'de' | 'nl';
 
@@ -18,11 +19,11 @@ interface LanguageProviderProps {
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
   const [language, setLanguage] = useState<Language>('en');
   
-  // Import all translation files
+  // Use import statements instead of require
   const translations: Record<string, Record<string, string>> = {
-    en: require('../data/translations').en,
-    de: require('../data/translations').de,
-    nl: require('../data/translations').nl,
+    en,
+    de,
+    nl,
   };
   
   // Translation function
