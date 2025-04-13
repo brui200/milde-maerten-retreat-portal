@@ -19,14 +19,21 @@ const Index = () => {
   const featuredSuites = suites.slice(0, 3);
   const featuredAmenities = amenities.slice(0, 3);
   
+  // Array of hero images for the slider
+  const heroImages = [
+    "/lovable-uploads/70a83751-a5b6-48f6-9562-dda2ddc2d508.png",
+    "/lovable-uploads/14c256fa-1d3d-42d8-9029-9c0b5d0bb551.png",
+    "/lovable-uploads/da579815-7db1-4a99-baf5-d241d4fcc53c.png"
+  ];
+  
   return (
     <>
       <Navbar />
       
       <main>
-        {/* Hero Section with new background image */}
+        {/* Hero Section with image slider */}
         <Hero 
-          backgroundImage="/lovable-uploads/70a83751-a5b6-48f6-9562-dda2ddc2d508.png"
+          backgroundImages={heroImages}
           title={t('home.hero.title')} 
           subtitle={t('home.hero.subtitle')} 
           ctaText={t('home.hero.cta')} 

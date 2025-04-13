@@ -3,9 +3,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/context/LanguageContext';
 import { Button } from '@/components/ui/button';
+import HeroSlider from './HeroSlider';
 
 interface HeroProps {
   backgroundImage?: string;
+  backgroundImages?: string[];
   title?: string;
   subtitle?: string;
   ctaText?: string;
@@ -15,6 +17,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({
   backgroundImage = "/lovable-uploads/70a83751-a5b6-48f6-9562-dda2ddc2d508.png",
+  backgroundImages,
   title,
   subtitle,
   ctaText,
@@ -23,16 +26,14 @@ const Hero: React.FC<HeroProps> = ({
 }) => {
   const { t } = useLanguage();
   
+  // Use backgroundImages if provided, otherwise create an array with the single backgroundImage
+  const images = backgroundImages || [backgroundImage];
+  
   return (
-    <div 
-      className={`relative w-full ${fullHeight ? 'h-screen' : 'h-[60vh]'} flex items-center`}
-      style={{ 
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
-    >
+    <div className={`relative w-full ${fullHeight ? 'h-screen' : 'h-[60vh]'} flex items-center`}>
+      {/* Image slider */}
+      <HeroSlider images={images} className="absolute inset-0" />
+      
       {/* Overlay with reduced opacity for better image visibility */}
       <div className="absolute inset-0 bg-black/20"></div>
       
