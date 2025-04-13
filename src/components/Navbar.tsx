@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/context/LanguageContext';
@@ -26,11 +27,11 @@ const Navbar = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   
   const navLinks = [
-    { to: '/', label: t('nav.home') },
-    { to: '/suites', label: t('nav.suites') },
-    { to: '/amenities', label: t('nav.amenities') },
-    { to: '/events', label: t('nav.events') },
-    { to: '/contact', label: t('nav.contact') },
+    { to: '/', label: t('home') },
+    { to: '/suites', label: t('suites') },
+    { to: '/amenities', label: t('amenities') },
+    { to: '/events', label: t('events') },
+    { to: '/contact', label: t('contact') },
   ];
   
   return (
@@ -57,7 +58,7 @@ const Navbar = () => {
             ))}
             <LanguageSwitcher />
             <Link to="/booking">
-              <Button className="btn-primary">{t('nav.book')}</Button>
+              <Button className="btn-primary">{t('book')}</Button>
             </Link>
           </nav>
           
@@ -86,7 +87,7 @@ const Navbar = () => {
               </Link>
             ))}
             <Link to="/booking" onClick={() => setIsMenuOpen(false)}>
-              <Button className="btn-primary w-full mt-2">{t('nav.book')}</Button>
+              <Button className="btn-primary w-full mt-2">{t('book')}</Button>
             </Link>
           </nav>
         )}

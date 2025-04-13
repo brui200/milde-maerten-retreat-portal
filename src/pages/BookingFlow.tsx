@@ -29,10 +29,10 @@ const BookingFlow = () => {
         <div className="container-custom max-w-5xl">
           <div className="mb-8 text-center">
             <h1 className="text-3xl md:text-4xl font-medium font-playfair mb-3">
-              {t('booking.selectSuite')}
+              {t('selectSuite')}
             </h1>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              {t('booking.selectSuiteDescription')}
+              {t('selectSuiteDescription')}
             </p>
           </div>
           
@@ -42,21 +42,21 @@ const BookingFlow = () => {
               <div className="h-8 w-8 rounded-full bg-primary text-white flex items-center justify-center">
                 1
               </div>
-              <span className="ml-2 font-medium">{t('booking.selectSuiteShort')}</span>
+              <span className="ml-2 font-medium">{t('selectSuiteShort')}</span>
             </div>
             <ChevronRight className="mx-3 text-muted-foreground" size={16} />
             <div className="flex items-center opacity-50">
               <div className="h-8 w-8 rounded-full border border-muted-foreground flex items-center justify-center">
                 2
               </div>
-              <span className="ml-2">{t('booking.chooseDates')}</span>
+              <span className="ml-2">{t('chooseDates')}</span>
             </div>
             <ChevronRight className="mx-3 text-muted-foreground opacity-50" size={16} />
             <div className="flex items-center opacity-50">
               <div className="h-8 w-8 rounded-full border border-muted-foreground flex items-center justify-center">
                 3
               </div>
-              <span className="ml-2">{t('booking.payment')}</span>
+              <span className="ml-2">{t('payment')}</span>
             </div>
           </div>
           
@@ -98,7 +98,7 @@ const BookingFlow = () => {
                     <div className="flex items-center gap-4 mb-4 text-sm text-muted-foreground">
                       <div className="flex items-center gap-1">
                         <Users size={16} />
-                        <span>{suite.capacity} {suite.capacity === 1 ? t('suites.guest') : t('suites.guests')}</span>
+                        <span>{suite.capacity} {suite.capacity === 1 ? t('guest') : t('guests')}</span>
                       </div>
                       <div className="flex items-center gap-1">
                         <Square size={16} />
@@ -134,7 +134,7 @@ const BookingFlow = () => {
               disabled={!selectedSuite}
               className="btn-primary"
             >
-              {t('booking.continueToDateSelection')}
+              {t('continueToDateSelection')}
               <ChevronRight size={16} />
             </Button>
           </div>

@@ -74,21 +74,21 @@ const Booking = () => {
               <div className="h-8 w-8 rounded-full bg-primary text-white flex items-center justify-center">
                 <ChevronLeft size={16} className="cursor-pointer" onClick={handleBack} />
               </div>
-              <span className="ml-2">{t('booking.selectSuiteShort')}</span>
+              <span className="ml-2">{t('selectSuiteShort')}</span>
             </div>
             <ChevronRight className="mx-3 text-muted-foreground" size={16} />
             <div className={`flex items-center ${currentStep === 2 ? 'opacity-100' : 'opacity-75'}`}>
               <div className={`h-8 w-8 rounded-full ${currentStep === 2 ? 'bg-primary text-white' : 'border border-muted-foreground'} flex items-center justify-center`}>
                 2
               </div>
-              <span className="ml-2 font-medium">{t('booking.chooseDates')}</span>
+              <span className="ml-2 font-medium">{t('chooseDates')}</span>
             </div>
             <ChevronRight className="mx-3 text-muted-foreground" size={16} />
             <div className={`flex items-center ${currentStep === 3 ? 'opacity-100' : 'opacity-50'}`}>
               <div className={`h-8 w-8 rounded-full ${currentStep === 3 ? 'bg-primary text-white' : 'border border-muted-foreground'} flex items-center justify-center`}>
                 3
               </div>
-              <span className="ml-2">{t('booking.payment')}</span>
+              <span className="ml-2">{t('payment')}</span>
             </div>
           </div>
           
@@ -104,7 +104,7 @@ const Booking = () => {
                 <div>
                   <h3 className="font-playfair">{selectedSuite.name}</h3>
                   <p className="text-sm text-muted-foreground">
-                    €{selectedSuite.price} / night · {selectedSuite.capacity} {selectedSuite.capacity === 1 ? t('suites.guest') : t('suites.guests')}
+                    €{selectedSuite.price} / night · {selectedSuite.capacity} {selectedSuite.capacity === 1 ? t('guest') : t('guests')}
                   </p>
                 </div>
               </div>

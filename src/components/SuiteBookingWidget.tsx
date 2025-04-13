@@ -46,7 +46,7 @@ const SuiteBookingWidget: React.FC<SuiteBookingWidgetProps> = ({ suite }) => {
     if (!checkInDate || !checkOutDate) {
       toast({
         title: "Error",
-        description: t('booking.selectDates'),
+        description: t('selectDates'),
         variant: "destructive",
       });
       return;
@@ -68,7 +68,7 @@ const SuiteBookingWidget: React.FC<SuiteBookingWidgetProps> = ({ suite }) => {
       <div className="flex items-center justify-between mb-4">
         <div>
           <span className="font-serif text-2xl">€{suite.price}</span>
-          <span className="text-muted-foreground"> / {t('suites.night')}</span>
+          <span className="text-muted-foreground"> / {t('night')}</span>
         </div>
         <div className="flex items-center">
           <span className="text-sm mr-1">4.9</span>
@@ -86,7 +86,7 @@ const SuiteBookingWidget: React.FC<SuiteBookingWidgetProps> = ({ suite }) => {
         <div className="grid grid-cols-2 divide-x">
           {/* Check-in Date */}
           <div className="p-3">
-            <Label htmlFor="checkin" className="text-xs text-muted-foreground">{t('booking.checkIn')}</Label>
+            <Label htmlFor="checkin" className="text-xs text-muted-foreground">{t('checkIn')}</Label>
             <Popover>
               <PopoverTrigger asChild>
                 <Button
@@ -97,7 +97,7 @@ const SuiteBookingWidget: React.FC<SuiteBookingWidgetProps> = ({ suite }) => {
                   {checkInDate ? (
                     format(checkInDate, 'MMM d, yyyy')
                   ) : (
-                    <span className="text-muted-foreground">{t('booking.selectDate')}</span>
+                    <span className="text-muted-foreground">{t('selectDate')}</span>
                   )}
                 </Button>
               </PopoverTrigger>
@@ -116,7 +116,7 @@ const SuiteBookingWidget: React.FC<SuiteBookingWidgetProps> = ({ suite }) => {
           
           {/* Check-out Date */}
           <div className="p-3">
-            <Label htmlFor="checkout" className="text-xs text-muted-foreground">{t('booking.checkOut')}</Label>
+            <Label htmlFor="checkout" className="text-xs text-muted-foreground">{t('checkOut')}</Label>
             <Popover>
               <PopoverTrigger asChild>
                 <Button
@@ -128,7 +128,7 @@ const SuiteBookingWidget: React.FC<SuiteBookingWidgetProps> = ({ suite }) => {
                   {checkOutDate ? (
                     format(checkOutDate, 'MMM d, yyyy')
                   ) : (
-                    <span className="text-muted-foreground">{t('booking.selectDate')}</span>
+                    <span className="text-muted-foreground">{t('selectDate')}</span>
                   )}
                 </Button>
               </PopoverTrigger>
@@ -150,9 +150,9 @@ const SuiteBookingWidget: React.FC<SuiteBookingWidgetProps> = ({ suite }) => {
         
         {/* Guests */}
         <div className="border-t p-3">
-          <Label htmlFor="guests" className="text-xs text-muted-foreground">{t('booking.guests')}</Label>
+          <Label htmlFor="guests" className="text-xs text-muted-foreground">{t('guests')}</Label>
           <div className="flex justify-between items-center">
-            <span>{t('booking.guests')}</span>
+            <span>{t('guests')}</span>
             <div className="flex items-center">
               <Button 
                 variant="outline" 
@@ -186,10 +186,10 @@ const SuiteBookingWidget: React.FC<SuiteBookingWidgetProps> = ({ suite }) => {
         {isLoading ? (
           <>
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            {t('booking.processing')}
+            {t('processing')}
           </>
         ) : (
-          t('booking.reserveBtn')
+          t('reserveBtn')
         )}
       </Button>
       
@@ -199,21 +199,21 @@ const SuiteBookingWidget: React.FC<SuiteBookingWidgetProps> = ({ suite }) => {
         onClick={() => navigate(`/booking?suite=${suite.id}`)}
       >
         <CreditCard className="mr-2 h-4 w-4" />
-        {t('booking.checkoutDirectly')}
+        {t('checkoutDirectly')}
       </Button>
       
       {checkInDate && checkOutDate && (
         <div className="space-y-2">
           <div className="flex justify-between">
-            <span>€{suite.price} x {nights} {t('suites.nights')}</span>
+            <span>€{suite.price} x {nights} {t('nights')}</span>
             <span>€{suite.price * nights}</span>
           </div>
           <div className="flex justify-between">
-            <span>{t('booking.serviceFee')}</span>
+            <span>{t('serviceFee')}</span>
             <span>€{Math.round(totalPrice * 0.1)}</span>
           </div>
           <div className="flex justify-between border-t pt-2 mt-2 font-medium">
-            <span>{t('booking.total')}</span>
+            <span>{t('total')}</span>
             <span>€{totalPrice + Math.round(totalPrice * 0.1)}</span>
           </div>
         </div>
