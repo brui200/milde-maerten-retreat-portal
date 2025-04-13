@@ -1,5 +1,8 @@
 
-import { enUS, de as deDE, nl as nlNL } from 'date-fns/locale';
+// Import specific locales from date-fns 
+import { enUS } from 'date-fns/locale/en-US';
+import { de as deDE } from 'date-fns/locale/de';
+import { nl as nlNL } from 'date-fns/locale/nl';
 
 const translations = {
   en: {

@@ -20,7 +20,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
   const [language, setLanguage] = useState<Language>('en');
   
   // Use imported language objects
-  const translations: Record<string, Record<string, string>> = {
+  const translations: Record<Language, any> = {
     en,
     de,
     nl,
@@ -28,13 +28,49 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
   
   // Translation function
   const t = (key: string): string => {
-    if (translations[language] && translations[language][key]) {
-      return translations[language][key];
+    // Split the key by dots to access nested properties
+    const keys = key.split('.');
+    
+    // Get the current language translation
+    let translation: any = translations[language];
+    
+    // Navigate through the nested keys
+    for (const k of keys) {
+      if (translation && translation[k] !== undefined) {
+        translation = translation[k];
+      } else {
+        // Key not found in current language
+        translation = undefined;
+        break;
+      }
     }
-    // Fallback to English if translation is missing
-    if (translations.en && translations.en[key]) {
-      return translations.en[key];
+    
+    // If translation is found and is a string, return it
+    if (typeof translation === 'string') {
+      return translation;
     }
+    
+    // Try to find in English if not in current language
+    if (language !== 'en') {
+      let enTranslation: any = translations.en;
+      
+      // Navigate through the nested keys in English translations
+      for (const k of keys) {
+        if (enTranslation && enTranslation[k] !== undefined) {
+          enTranslation = enTranslation[k];
+        } else {
+          // Key not found in English
+          enTranslation = undefined;
+          break;
+        }
+      }
+      
+      // If English translation is found and is a string, return it
+      if (typeof enTranslation === 'string') {
+        return enTranslation;
+      }
+    }
+    
     // Return the key if no translation is found
     return key;
   };
