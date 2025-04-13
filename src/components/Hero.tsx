@@ -21,7 +21,7 @@ const Hero: React.FC<HeroProps> = ({
   title,
   subtitle,
   ctaText,
-  ctaLink = "/booking",
+  ctaLink = "/booking-flow",
   fullHeight = true
 }) => {
   const { t } = useLanguage();

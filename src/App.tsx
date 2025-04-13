@@ -14,6 +14,7 @@ import Amenities from "./pages/Amenities";
 import Events from "./pages/Events";
 import Contact from "./pages/Contact";
 import Booking from "./pages/Booking";
+import BookingFlow from "./pages/BookingFlow";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -33,6 +34,7 @@ const App = () => (
             <Route path="/events" element={<Events />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/booking" element={<Booking />} />
+            <Route path="/booking-flow" element={<BookingFlow />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
