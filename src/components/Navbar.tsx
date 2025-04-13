@@ -69,14 +69,17 @@ const Navbar = () => {
                 
                 {/* About Dropdown */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger>{t('navbar.about')}</NavigationMenuTrigger>
-                  <NavigationMenuContent>
+                  <NavigationMenuTrigger className="flex items-center">
+                    {t('navbar.about')}
+                    <ChevronDown className="ml-2 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180" />
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent className="bg-white/80 backdrop-blur-md border border-gray-100 shadow-lg rounded-lg">
                     <ul className="grid w-[200px] gap-2 p-2">
                       {aboutDropdownItems.map((item) => (
                         <li key={item.to}>
                           <Link
                             to={item.to}
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-100"
                           >
                             <div className="text-sm font-medium">{item.label}</div>
                           </Link>
