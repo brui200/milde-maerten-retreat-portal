@@ -29,7 +29,7 @@ const EventsSection: React.FC<EventsSectionProps> = ({ alternative = false }) =>
           {/* Content */}
           <div className={`${alternative ? 'order-2 md:order-2' : 'order-2 md:order-1'}`}>
             <h2 className="text-3xl md:text-4xl font-medium mb-4 font-playfair">{t('home.events.title')}</h2>
-            <p className="text-muted-foreground mb-6">{t('events.church.description')}</p>
+            <p className="text-muted-foreground mb-6">{t('events.description')}</p>
             <ul className="mb-8 space-y-3">
               <li className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-black rounded-full"></div>

@@ -41,10 +41,10 @@ const Hero: React.FC<HeroProps> = ({
       <div className="absolute inset-0 flex items-center justify-center z-10">
         <div className="text-center px-4 max-w-3xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-white font-playfair">
-            {title || t('hero.title')}
+            {title || t('home.hero.title')}
           </h1>
           <p className="mt-4 text-lg md:text-xl text-white/90 max-w-xl mx-auto font-light">
-            {subtitle || t('hero.subtitle')}
+            {subtitle || t('home.hero.subtitle')}
           </p>
           {ctaText && (
             <div className="flex justify-center mt-8">

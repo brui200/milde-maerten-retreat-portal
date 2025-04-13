@@ -27,18 +27,16 @@ const Navbar = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   
   const navLinks = [
-    { to: '/', label: t('home') },
-    { to: '/suites', label: t('suites') },
-    { to: '/amenities', label: t('amenities') },
-    { to: '/events', label: t('events') },
-    { to: '/contact', label: t('contact') },
+    { to: '/', label: t('navbar.home') },
+    { to: '/suites', label: t('navbar.suites') },
+    { to: '/amenities', label: t('navbar.amenities') },
+    { to: '/events', label: t('navbar.events') },
+    { to: '/contact', label: t('navbar.contact') },
   ];
   
   return (
     <header 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'glass-effect shadow-sm' : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 glass-effect shadow-sm`}
     >
       <div className="container-custom py-4 md:py-5">
         <div className="flex items-center justify-between">
@@ -58,7 +56,7 @@ const Navbar = () => {
             ))}
             <LanguageSwitcher />
             <Link to="/booking">
-              <Button className="btn-primary">{t('book')}</Button>
+              <Button className="btn-primary">{t('navbar.booking')}</Button>
             </Link>
           </nav>
           
@@ -87,7 +85,7 @@ const Navbar = () => {
               </Link>
             ))}
             <Link to="/booking" onClick={() => setIsMenuOpen(false)}>
-              <Button className="btn-primary w-full mt-2">{t('book')}</Button>
+              <Button className="btn-primary w-full mt-2">{t('navbar.booking')}</Button>
             </Link>
           </nav>
         )}
