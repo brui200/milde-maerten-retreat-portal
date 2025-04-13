@@ -1,4 +1,3 @@
-
 export interface Suite {
   id: string;
   name: string;
@@ -12,6 +11,7 @@ export interface Suite {
   size: number;
   amenities: string[];
   images: string[];
+  rating?: number;
 }
 
 export interface Amenity {
@@ -29,7 +29,20 @@ export interface Amenity {
   image: string;
 }
 
-// Suites data
+export interface Review {
+  id: string;
+  author: string;
+  suiteId: string;
+  rating: number;
+  date: string;
+  content: {
+    en: string;
+    de: string;
+    nl: string;
+  };
+  avatar?: string;
+}
+
 export const suites: Suite[] = [
   {
     id: "royal-suite",
@@ -46,7 +59,8 @@ export const suites: Suite[] = [
     images: [
       "https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=2574",
       "https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=2670"
-    ]
+    ],
+    rating: 4.9
   },
   {
     id: "garden-suite",
@@ -63,7 +77,8 @@ export const suites: Suite[] = [
     images: [
       "https://images.unsplash.com/photo-1591088398332-8a7791972843?q=80&w=2574",
       "https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=2574"
-    ]
+    ],
+    rating: 4.7
   },
   {
     id: "historic-suite",
@@ -80,7 +95,8 @@ export const suites: Suite[] = [
     images: [
       "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=2670",
       "https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=2670"
-    ]
+    ],
+    rating: 4.8
   },
   {
     id: "family-suite",
@@ -97,11 +113,11 @@ export const suites: Suite[] = [
     images: [
       "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=2670",
       "https://images.unsplash.com/photo-1576675784201-0e142b423952?q=80&w=2670"
-    ]
+    ],
+    rating: 4.6
   }
 ];
 
-// Amenities data
 export const amenities: Amenity[] = [
   {
     id: "coffee-cafe",
@@ -155,8 +171,89 @@ export const amenities: Amenity[] = [
     description: {
       en: "Our beautifully restored church provides a breathtaking setting for weddings, conferences, concerts, and special events. The historic architecture and excellent acoustics make it a truly unique venue.",
       de: "Unsere wunderschön restaurierte Kirche bietet eine atemberaubende Kulisse für Hochzeiten, Konferenzen, Konzerte und besondere Veranstaltungen. Die historische Architektur und die ausgezeichnete Akustik machen sie zu einem wirklich einzigartigen Veranstaltungsort.",
-      nl: "Onze prachtig gerestaureerde kerk biedt een adembenemende setting voor bruiloften, conferenties, concerten en speciale evenementen. De historische architectuur en uitstekende akoestiek maken het een echt unieke locatie."
+      nl: "Ons prachtig gerestaureerde kerk biedt een adembenemende setting voor bruiloften, conferenties, concerten en speciale evenementen. De historische architectuur en uitstekende akoestiek maken het een echt unieke locatie."
     },
     image: "https://images.unsplash.com/photo-1623170095789-a1d37891e67e?q=80&w=2574"
+  }
+];
+
+export const reviews: Review[] = [
+  {
+    id: "review-1",
+    author: "Emma Thompson",
+    suiteId: "royal-suite",
+    rating: 5,
+    date: "2025-03-15",
+    content: {
+      en: "Our stay at the Royal Suite was absolutely magnificent. The attention to detail and the personalized service exceeded our expectations. The view of Middelburg from our room was breathtaking.",
+      de: "Unser Aufenthalt in der Royal Suite war absolut großartig. Die Liebe zum Detail und der persönliche Service übertrafen unsere Erwartungen. Der Blick auf Middelburg von unserem Zimmer war atemberaubend.",
+      nl: "Ons verblijf in de Royal Suite was absoluut geweldig. De aandacht voor detail en de persoonlijke service overtroffen onze verwachtingen. Het uitzicht op Middelburg vanuit onze kamer was adembenemend."
+    },
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1287"
+  },
+  {
+    id: "review-2",
+    author: "James Wilson",
+    suiteId: "garden-suite",
+    rating: 4,
+    date: "2025-02-28",
+    content: {
+      en: "The Garden Suite provided us with a peaceful retreat. We enjoyed our morning coffee on the private terrace overlooking the beautiful garden. A perfect place to relax and unwind.",
+      de: "Die Garden Suite bot uns einen friedlichen Rückzugsort. Wir genossen unseren Morgenkaffee auf der privaten Terrasse mit Blick auf den wunderschönen Garten. Ein perfekter Ort zum Entspannen und Erholen.",
+      nl: "De Garden Suite bood ons een rustige toevluchtsoord. We genoten van onze ochtendkoffie op het privéterras met uitzicht op de prachtige tuin. Een perfecte plek om te ontspannen."
+    },
+    avatar: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=1287"
+  },
+  {
+    id: "review-3",
+    author: "Sophie Chen",
+    suiteId: "historic-suite",
+    rating: 5,
+    date: "2025-03-05",
+    content: {
+      en: "Staying in the Historic Suite was like stepping back in time but with all the modern comforts. The original architectural elements gave the space so much character. Absolutely loved it!",
+      de: "Der Aufenthalt in der Historic Suite war wie eine Reise in die Vergangenheit, aber mit allem modernem Komfort. Die originalen architektonischen Elemente gaben dem Raum so viel Charakter. Absolut geliebt!",
+      nl: "Verblijven in de Historic Suite was als een stap terug in de tijd, maar met alle moderne comfort. De originele architectonische elementen gaven de ruimte zoveel karakter. Absoluut geweldig!"
+    },
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1287"
+  },
+  {
+    id: "review-4",
+    author: "Michael Brown",
+    suiteId: "family-suite",
+    rating: 5,
+    date: "2025-02-10",
+    content: {
+      en: "Perfect for our family of four! The kids loved having their own space, and we appreciated the thoughtful amenities. Hotel de Milde Maerten made our family vacation truly special.",
+      de: "Perfekt für unsere vierköpfige Familie! Die Kinder liebten es, ihren eigenen Raum zu haben, und wir schätzten die durchdachten Annehmlichkeiten. Hotel de Milde Maerten machte unseren Familienurlaub wirklich besonders.",
+      nl: "Perfect voor ons gezin van vier! De kinderen vonden het geweldig om hun eigen ruimte te hebben, en wij waardeerden de doordachte voorzieningen. Hotel de Milde Maerten maakte onze familievakantie echt bijzonder."
+    },
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1287"
+  },
+  {
+    id: "review-5",
+    author: "Laura Martinez",
+    suiteId: "royal-suite",
+    rating: 5,
+    date: "2025-01-20",
+    content: {
+      en: "The Royal Suite was the pinnacle of luxury. From the elegant furnishings to the impeccable service, everything was designed to create an unforgettable experience. We can't wait to return!",
+      de: "Die Royal Suite war der Inbegriff von Luxus. Von der eleganten Einrichtung bis zum tadellosen Service war alles darauf ausgerichtet, ein unvergessliches Erlebnis zu schaffen. Wir können es kaum erwarten, zurückzukehren!",
+      nl: "De Royal Suite was het toppunt van luxe. Van het elegante meubilair tot de onberispelijke service, alles was ontworpen om een onvergetelijke ervaring te creëren. We kunnen niet wachten om terug te keren!"
+    },
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1287"
+  },
+  {
+    id: "review-6",
+    author: "Daniel Kim",
+    suiteId: "garden-suite",
+    rating: 5,
+    date: "2025-03-18",
+    content: {
+      en: "The tranquility of the Garden Suite was exactly what we needed. The hotel's attention to detail is remarkable - from the premium bedding to the curated selection of teas and coffees.",
+      de: "Die Ruhe der Garden Suite war genau das, was wir brauchten. Die Liebe zum Detail des Hotels ist bemerkenswert - von der hochwertigen Bettwäsche bis zur kuratierten Auswahl an Tees und Kaffees.",
+      nl: "De rust van de Garden Suite was precies wat we nodig hadden. De aandacht voor detail van het hotel is opmerkelijk - van het premium beddengoed tot de samengestelde selectie van thee en koffie."
+    },
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1287"
   }
 ];

@@ -1,248 +1,347 @@
-export const en = {
-  // Navigation
-  "nav.home": "Home",
-  "nav.suites": "Suites",
-  "nav.amenities": "Amenities",
-  "nav.events": "Events",
-  "nav.contact": "Contact",
-  "nav.book": "Book Now",
-  
-  // Home page
-  "home.hero.title": "Hotel de Milde Maerten",
-  "home.hero.subtitle": "A monumental experience in the heart of Middelburg",
-  "home.hero.cta": "Book Your Stay",
-  "home.about.title": "About Us",
-  "home.about.description": "The Milde Maerten Hotel is a monumental building located in the historic center of Middelburg. Our hotel offers exclusive suites, a cozy coffee café, a delightful chocolaterie, and a peaceful garden with terrace. The connected church provides a unique venue for special events.",
-  "home.suites.title": "Our Suites",
-  "home.suites.description": "Experience unmatched comfort in our carefully designed suites.",
-  "home.suites.viewAll": "View All Suites",
-  "home.amenities.title": "Hotel Amenities",
-  "home.amenities.description": "Discover the unique offerings at Milde Maerten Hotel.",
-  "home.amenities.viewAll": "View All Amenities",
-  "home.events.title": "Host Your Events",
-  "home.events.description": "Our connected church venue offers a remarkable setting for weddings, conferences, and special occasions.",
-  "home.events.learnMore": "Learn More",
-  
-  // Suites page
-  "suites.title": "Our Suites",
-  "suites.subtitle": "Experience the perfect blend of history and comfort",
-  "suites.book": "Book Now",
-  "suites.viewDetails": "View Details",
-  
-  // Amenities page
-  "amenities.title": "Amenities",
-  "amenities.subtitle": "Indulge in our premium offerings",
-  "amenities.cafe.title": "Coffee Café",
-  "amenities.cafe.description": "Enjoy freshly brewed coffee and homemade pastries in our cozy café.",
-  "amenities.chocolaterie.title": "Chocolaterie",
-  "amenities.chocolaterie.description": "Savor exquisite handmade chocolates crafted by our master chocolatier.",
-  "amenities.garden.title": "Garden & Terrace",
-  "amenities.garden.description": "Relax in our peaceful garden and terrace, a green oasis in the city center.",
-  
-  // Events page
-  "events.title": "Events",
-  "events.subtitle": "Create unforgettable memories in our historic church venue",
-  "events.church.title": "The Church Venue",
-  "events.church.description": "Our beautifully restored church provides a magnificent backdrop for weddings, conferences, and special events.",
-  "events.inquire": "Inquire Now",
-  
-  // Contact page
-  "contact.title": "Contact Us",
-  "contact.subtitle": "We're here to assist you",
-  "contact.address": "Address",
-  "contact.addressValue": "Lange Noordstraat 60, Middelburg",
-  "contact.email": "Email",
-  "contact.emailValue": "info@mildemaerten.nl",
-  "contact.phone": "Phone",
-  "contact.phoneValue": "+31 123 456 789",
-  "contact.form.name": "Your Name",
-  "contact.form.email": "Your Email",
-  "contact.form.message": "Your Message",
-  "contact.form.submit": "Send Message",
-  
-  // Booking
-  "booking.title": "Book Your Stay",
-  "booking.checkIn": "Check-In Date",
-  "booking.checkOut": "Check-Out Date",
-  "booking.guests": "Guests",
-  "booking.selectSuite": "Select Suite",
-  "booking.firstName": "First Name",
-  "booking.lastName": "Last Name",
-  "booking.email": "Email",
-  "booking.phone": "Phone",
-  "booking.specialRequests": "Special Requests",
-  "booking.confirm": "Confirm Booking",
-  "booking.success": "Booking successful! We've sent a confirmation to your email.",
-  
-  // Footer
-  "footer.address": "Lange Noordstraat 60, Middelburg",
-  "footer.rights": "All rights reserved",
-  "footer.privacy": "Privacy Policy",
-  "footer.terms": "Terms of Service"
+import { en as enUS, de as deDE, nl as nlNL } from 'date-fns/locale';
+
+const translations = {
+  en: {
+    navbar: {
+      home: "Home",
+      suites: "Suites",
+      amenities: "Amenities",
+      events: "Events",
+      contact: "Contact",
+      booking: "Book Now",
+    },
+    footer: {
+      company: "Company",
+      about: "About Us",
+      team: "Our Team",
+      careers: "Careers",
+      contact: "Contact",
+      suites: "Suites",
+      amenities: "Amenities",
+      events: "Events",
+      social: "Social Media",
+      facebook: "Facebook",
+      instagram: "Instagram",
+      linkedin: "LinkedIn",
+      newsletter: {
+        title: "Subscribe to our Newsletter",
+        description: "Stay up to date with our latest news and special offers.",
+        emailPlaceholder: "Your Email Address",
+        subscribeButton: "Subscribe",
+        successMessage: "Thank you for subscribing!",
+        errorMessage: "Please enter a valid email address.",
+      },
+      copyright: "© 2024 Hotel de Milde Maerten. All rights reserved.",
+    },
+    home: {
+      hero: {
+        title: "Experience the Charm of Middelburg",
+        subtitle: "Discover a unique blend of history and luxury at our boutique hotel in the heart of Zeeland.",
+        cta: "Book Your Stay",
+      },
+      about: {
+        title: "A Boutique Hotel with a Story",
+        description: "Nestled in the historic heart of Middelburg, Hotel de Milde Maerten offers a unique blend of classic charm and modern luxury. Our carefully restored building, dating back to the 17th century, provides an intimate and elegant setting for your stay. Discover our individually designed suites, indulge in gourmet dining, and experience the warm hospitality that sets us apart.",
+      },
+      suites: {
+        title: "Our Exclusive Suites",
+        description: "Indulge in the comfort and style of our individually designed suites. Each room offers a unique ambiance, combining historic charm with modern amenities for an unforgettable stay.",
+        viewAll: "View All Suites",
+      },
+      amenities: {
+        title: "Exceptional Amenities",
+        description: "Enhance your stay with our exceptional amenities, designed to provide you with the utmost comfort and convenience. From our gourmet dining options to our relaxing spa services, we have everything you need for a memorable experience.",
+        viewAll: "Explore All Amenities",
+      },
+      events: {
+        title: "Celebrate in Style",
+        description: "Host your special event in our unique and elegant venues. Whether you're planning a wedding, a corporate retreat, or a family celebration, our dedicated team will ensure a seamless and unforgettable experience.",
+        learnMore: "Learn More",
+      },
+      contact: {
+        title: "Get in Touch",
+        description: "We'd love to hear from you! Contact us for inquiries, reservations, or special requests. Our friendly team is here to assist you with all your needs.",
+        contactUs: "Contact Us",
+      },
+      reviews: {
+        title: "Guest Reviews",
+        description: "Read what our guests have to say about their experience at Hotel de Milde Maerten",
+        allReviews: "All Reviews"
+      }
+    },
+    suites: {
+      title: "Our Suites",
+      description: "Discover our unique suites, each offering a blend of comfort and style. From cozy rooms to luxurious apartments, find the perfect accommodation for your stay.",
+      viewDetails: "View Details",
+      book: "Book Now",
+      amenities: "Suite Amenities",
+      policies: "Hotel Policies",
+      checkInOut: "Check-in & Check-out",
+      checkInTime: "Check-in Time",
+      checkOutTime: "Check-out Time",
+      cancellation: "Cancellation Policy",
+      cancellationPolicy: "Free cancellation up to 24 hours before arrival.",
+      reviews: "Guest Reviews",
+      guest: "guest",
+      guests: "guests"
+    },
+    amenities: {
+      title: "Hotel Amenities",
+      description: "Explore the range of amenities we offer to make your stay more enjoyable. From dining to relaxation, we have something for everyone.",
+      learnMore: "Learn More",
+    },
+    events: {
+      title: "Events & Celebrations",
+      description: "Plan your special event with us. Our venues and services are perfect for weddings, conferences, and private parties.",
+      viewEvents: "View Events",
+    },
+    contact: {
+      title: "Contact Us",
+      description: "Get in touch with our team for any inquiries or special requests. We are here to help make your stay perfect.",
+      sendEmail: "Send Email",
+    },
+    booking: {
+      title: "Book Your Stay",
+      description: "Check availability and book your suite directly with us for the best rates and exclusive offers.",
+      checkAvailability: "Check Availability",
+    },
+    notFound: {
+      title: "Page Not Found",
+      description: "The page you are looking for does not exist. Please check the URL or return to the homepage.",
+      returnHome: "Return to Home",
+    },
+  },
+  de: {
+    navbar: {
+      home: "Startseite",
+      suites: "Suiten",
+      amenities: "Annehmlichkeiten",
+      events: "Veranstaltungen",
+      contact: "Kontakt",
+      booking: "Jetzt Buchen",
+    },
+    footer: {
+      company: "Unternehmen",
+      about: "Über Uns",
+      team: "Unser Team",
+      careers: "Karriere",
+      contact: "Kontakt",
+      suites: "Suiten",
+      amenities: "Annehmlichkeiten",
+      events: "Veranstaltungen",
+      social: "Soziale Medien",
+      facebook: "Facebook",
+      instagram: "Instagram",
+      linkedin: "LinkedIn",
+      newsletter: {
+        title: "Abonnieren Sie unseren Newsletter",
+        description: "Bleiben Sie auf dem Laufenden mit unseren neuesten Nachrichten und Sonderangeboten.",
+        emailPlaceholder: "Ihre E-Mail-Adresse",
+        subscribeButton: "Abonnieren",
+        successMessage: "Vielen Dank für Ihre Anmeldung!",
+        errorMessage: "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+      },
+      copyright: "© 2024 Hotel de Milde Maerten. Alle Rechte vorbehalten.",
+    },
+    home: {
+      hero: {
+        title: "Erleben Sie den Charme von Middelburg",
+        subtitle: "Entdecken Sie eine einzigartige Mischung aus Geschichte und Luxus in unserem Boutique-Hotel im Herzen von Zeeland.",
+        cta: "Buchen Sie Ihren Aufenthalt",
+      },
+      about: {
+        title: "Ein Boutique-Hotel mit Geschichte",
+        description: "Das Hotel de Milde Maerten liegt im historischen Herzen von Middelburg und bietet eine einzigartige Mischung aus klassischem Charme und modernem Luxus. Unser sorgfältig restauriertes Gebäude aus dem 17. Jahrhundert bietet einen intimen und eleganten Rahmen für Ihren Aufenthalt. Entdecken Sie unsere individuell gestalteten Suiten, genießen Sie Gourmetküche und erleben Sie die herzliche Gastfreundschaft, die uns auszeichnet.",
+      },
+      suites: {
+        title: "Unsere Exklusiven Suiten",
+        description: "Gönnen Sie sich den Komfort und Stil unserer individuell gestalteten Suiten. Jedes Zimmer bietet ein einzigartiges Ambiente, das historischen Charme mit modernen Annehmlichkeiten für einen unvergesslichen Aufenthalt verbindet.",
+        viewAll: "Alle Suiten Anzeigen",
+      },
+      amenities: {
+        title: "Außergewöhnliche Annehmlichkeiten",
+        description: "Verbessern Sie Ihren Aufenthalt mit unseren außergewöhnlichen Annehmlichkeiten, die Ihnen höchsten Komfort und Bequemlichkeit bieten. Von unseren Gourmetrestaurants bis hin zu unseren entspannenden Spa-Services haben wir alles, was Sie für ein unvergessliches Erlebnis benötigen.",
+        viewAll: "Alle Annehmlichkeiten Erkunden",
+      },
+      events: {
+        title: "Stilvoll Feiern",
+        description: "Veranstalten Sie Ihr besonderes Ereignis in unseren einzigartigen und eleganten Veranstaltungsorten. Ob Sie eine Hochzeit, einen Firmenausflug oder eine Familienfeier planen, unser engagiertes Team sorgt für ein nahtloses und unvergessliches Erlebnis.",
+        learnMore: "Mehr Erfahren",
+      },
+      contact: {
+        title: "Nehmen Sie Kontakt Auf",
+        description: "Wir würden uns freuen, von Ihnen zu hören! Kontaktieren Sie uns für Anfragen, Reservierungen oder spezielle Wünsche. Unser freundliches Team steht Ihnen bei allen Ihren Bedürfnissen zur Seite.",
+        contactUs: "Kontaktieren Sie Uns",
+      },
+      reviews: {
+        title: "Gästebewertungen",
+        description: "Lesen Sie, was unsere Gäste über ihre Erfahrungen im Hotel de Milde Maerten zu sagen haben",
+        allReviews: "Alle Bewertungen"
+      }
+    },
+    suites: {
+      title: "Unsere Suiten",
+      description: "Entdecken Sie unsere einzigartigen Suiten, die jeweils eine Mischung aus Komfort und Stil bieten. Von gemütlichen Zimmern bis hin zu luxuriösen Apartments finden Sie die perfekte Unterkunft für Ihren Aufenthalt.",
+      viewDetails: "Details Anzeigen",
+      book: "Jetzt Buchen",
+      amenities: "Suiten-Annehmlichkeiten",
+      policies: "Hotelrichtlinien",
+      checkInOut: "Check-in & Check-out",
+      checkInTime: "Check-in-Zeit",
+      checkOutTime: "Check-out-Zeit",
+      cancellation: "Stornierungsbedingungen",
+      cancellationPolicy: "Kostenlose Stornierung bis 24 Stunden vor Anreise.",
+      reviews: "Gästebewertungen",
+      guest: "Gast",
+      guests: "Gäste"
+    },
+    amenities: {
+      title: "Hotel Annehmlichkeiten",
+      description: "Entdecken Sie die Vielfalt an Annehmlichkeiten, die wir anbieten, um Ihren Aufenthalt angenehmer zu gestalten. Von Gastronomie bis Entspannung haben wir für jeden etwas zu bieten.",
+      learnMore: "Mehr Erfahren",
+    },
+    events: {
+      title: "Veranstaltungen & Feiern",
+      description: "Planen Sie Ihre besondere Veranstaltung mit uns. Unsere Veranstaltungsorte und Dienstleistungen sind perfekt für Hochzeiten, Konferenzen und private Partys.",
+      viewEvents: "Veranstaltungen Anzeigen",
+    },
+    contact: {
+      title: "Kontaktieren Sie Uns",
+      description: "Kontaktieren Sie unser Team für Anfragen oder spezielle Wünsche. Wir sind hier, um Ihren Aufenthalt perfekt zu gestalten.",
+      sendEmail: "E-Mail Senden",
+    },
+    booking: {
+      title: "Buchen Sie Ihren Aufenthalt",
+      description: "Prüfen Sie die Verfügbarkeit und buchen Sie Ihre Suite direkt bei uns, um die besten Preise und exklusiven Angebote zu erhalten.",
+      checkAvailability: "Verfügbarkeit Prüfen",
+    },
+    notFound: {
+      title: "Seite Nicht Gefunden",
+      description: "Die von Ihnen gesuchte Seite existiert nicht. Bitte überprüfen Sie die URL oder kehren Sie zur Startseite zurück.",
+      returnHome: "Zurück zur Startseite",
+    },
+  },
+  nl: {
+    navbar: {
+      home: "Home",
+      suites: "Suites",
+      amenities: "Voorzieningen",
+      events: "Evenementen",
+      contact: "Contact",
+      booking: "Boek Nu",
+    },
+    footer: {
+      company: "Bedrijf",
+      about: "Over Ons",
+      team: "Ons Team",
+      careers: "Carrières",
+      contact: "Contact",
+      suites: "Suites",
+      amenities: "Voorzieningen",
+      events: "Evenementen",
+      social: "Sociale Media",
+      facebook: "Facebook",
+      instagram: "Instagram",
+      linkedin: "LinkedIn",
+      newsletter: {
+        title: "Abonneer u op onze Nieuwsbrief",
+        description: "Blijf op de hoogte van ons laatste nieuws en speciale aanbiedingen.",
+        emailPlaceholder: "Uw E-mailadres",
+        subscribeButton: "Abonneer",
+        successMessage: "Bedankt voor uw aanmelding!",
+        errorMessage: "Voer een geldig e-mailadres in.",
+      },
+      copyright: "© 2024 Hotel de Milde Maerten. Alle rechten voorbehouden.",
+    },
+    home: {
+      hero: {
+        title: "Ervaar de Charme van Middelburg",
+        subtitle: "Ontdek een unieke mix van historie en luxe in ons boetiekhotel in het hart van Zeeland.",
+        cta: "Boek Uw Verblijf",
+      },
+      about: {
+        title: "Een Boetiekhotel met een Verhaal",
+        description: "Hotel de Milde Maerten, gelegen in het historische hart van Middelburg, biedt een unieke mix van klassieke charme en moderne luxe. Ons zorgvuldig gerestaureerde gebouw, daterend uit de 17e eeuw, biedt een intieme en elegante setting voor uw verblijf. Ontdek onze individueel ontworpen suites, geniet van gastronomisch dineren en ervaar de warme gastvrijheid die ons onderscheidt.",
+      },
+      suites: {
+        title: "Onze Exclusieve Suites",
+        description: "Verwen uzelf met het comfort en de stijl van onze individueel ontworpen suites. Elke kamer biedt een unieke ambiance, die historische charme combineert met moderne voorzieningen voor een onvergetelijk verblijf.",
+        viewAll: "Bekijk Alle Suites",
+      },
+      amenities: {
+        title: "Uitzonderlijke Voorzieningen",
+        description: "Verbeter uw verblijf met onze uitzonderlijke voorzieningen, ontworpen om u het grootste comfort en gemak te bieden. Van onze gastronomische eetgelegenheden tot onze ontspannende spadiensten, we hebben alles wat u nodig heeft voor een onvergetelijke ervaring.",
+        viewAll: "Verken Alle Voorzieningen",
+      },
+      events: {
+        title: "Vier in Stijl",
+        description: "Organiseer uw speciale evenement op onze unieke en elegante locaties. Of u nu een bruiloft, een zakelijk uitje of een familiefeest plant, ons toegewijde team zorgt voor een naadloze en onvergetelijke ervaring.",
+        learnMore: "Meer Informatie",
+      },
+      contact: {
+        title: "Neem Contact Op",
+        description: "We horen graag van u! Neem contact met ons op voor vragen, reserveringen of speciale verzoeken. Ons vriendelijke team staat klaar om u te helpen met al uw behoeften.",
+        contactUs: "Neem Contact Op",
+      },
+      reviews: {
+        title: "Beoordelingen van gasten",
+        description: "Lees wat onze gasten te zeggen hebben over hun ervaring bij Hotel de Milde Maerten",
+        allReviews: "Alle beoordelingen"
+      }
+    },
+    suites: {
+      title: "Onze Suites",
+      description: "Ontdek onze unieke suites, elk met een mix van comfort en stijl. Van gezellige kamers tot luxe appartementen, vind de perfecte accommodatie voor uw verblijf.",
+      viewDetails: "Bekijk Details",
+      book: "Boek Nu",
+      amenities: "Suite Voorzieningen",
+      policies: "Hotelbeleid",
+      checkInOut: "In- & Uitchecken",
+      checkInTime: "Inchecktijd",
+      checkOutTime: "Uitchecktijd",
+      cancellation: "Annuleringsbeleid",
+      cancellationPolicy: "Gratis annulering tot 24 uur voor aankomst.",
+      reviews: "Beoordelingen van gasten",
+      guest: "gast",
+      guests: "gasten"
+    },
+    amenities: {
+      title: "Hotel Voorzieningen",
+      description: "Ontdek het aanbod aan voorzieningen dat we bieden om uw verblijf aangenamer te maken. Van dineren tot ontspanning, we hebben voor elk wat wils.",
+      learnMore: "Meer Informatie",
+    },
+    events: {
+      title: "Evenementen & Vieringen",
+      description: "Plan uw speciale evenement bij ons. Onze locaties en diensten zijn perfect voor bruiloften, conferenties en privéfeesten.",
+      viewEvents: "Bekijk Evenementen",
+    },
+    contact: {
+      title: "Neem Contact Met Ons Op",
+      description: "Neem contact op met ons team voor vragen of speciale verzoeken. We zijn hier om uw verblijf perfect te maken.",
+      sendEmail: "Stuur E-mail",
+    },
+    booking: {
+      title: "Boek Uw Verblijf",
+      description: "Controleer de beschikbaarheid en boek uw suite rechtstreeks bij ons voor de beste tarieven en exclusieve aanbiedingen.",
+      checkAvailability: "Beschikbaarheid Controleren",
+    },
+    notFound: {
+      title: "Pagina Niet Gevonden",
+      description: "De pagina die u zoekt bestaat niet. Controleer de URL of keer terug naar de startpagina.",
+      returnHome: "Terug naar Home",
+    },
+  },
 };
 
-export const de = {
-  // Navigation
-  "nav.home": "Startseite",
-  "nav.suites": "Suiten",
-  "nav.amenities": "Annehmlichkeiten",
-  "nav.events": "Veranstaltungen",
-  "nav.contact": "Kontakt",
-  "nav.book": "Jetzt Buchen",
-  
-  // Home page
-  "home.hero.title": "Hotel de Milde Maerten",
-  "home.hero.subtitle": "Ein monumentales Erlebnis im Herzen von Middelburg",
-  "home.hero.cta": "Buchen Sie Ihren Aufenthalt",
-  "home.about.title": "Über Uns",
-  "home.about.description": "Das Milde Maerten Hotel ist ein monumentales Gebäude im historischen Zentrum von Middelburg. Unser Hotel bietet exklusive Suiten, ein gemütliches Kaffee-Café, eine köstliche Chocolaterie und einen friedlichen Garten mit Terrasse. Die angeschlossene Kirche bietet einen einzigartigen Ort für besondere Veranstaltungen.",
-  "home.suites.title": "Unsere Suiten",
-  "home.suites.description": "Erleben Sie unvergleichlichen Komfort in unseren sorgfältig gestalteten Suiten.",
-  "home.suites.viewAll": "Alle Suiten ansehen",
-  "home.amenities.title": "Hotel Annehmlichkeiten",
-  "home.amenities.description": "Entdecken Sie die einzigartigen Angebote im Milde Maerten Hotel.",
-  "home.amenities.viewAll": "Alle Annehmlichkeiten ansehen",
-  "home.events.title": "Veranstaltungen ausrichten",
-  "home.events.description": "Unsere angeschlossene Kirche bietet einen bemerkenswerten Rahmen für Hochzeiten, Konferenzen und besondere Anlässe.",
-  "home.events.learnMore": "Mehr erfahren",
-  
-  // Suites page
-  "suites.title": "Unsere Suiten",
-  "suites.subtitle": "Erleben Sie die perfekte Mischung aus Geschichte und Komfort",
-  "suites.book": "Jetzt Buchen",
-  "suites.viewDetails": "Details anzeigen",
-  
-  // Amenities page
-  "amenities.title": "Annehmlichkeiten",
-  "amenities.subtitle": "Genießen Sie unsere Premium-Angebote",
-  "amenities.cafe.title": "Kaffee-Café",
-  "amenities.cafe.description": "Genießen Sie frisch gebrühten Kaffee und hausgemachtes Gebäck in unserem gemütlichen Café.",
-  "amenities.chocolaterie.title": "Chocolaterie",
-  "amenities.chocolaterie.description": "Genießen Sie exquisite handgemachte Schokoladen, die von unserem Meister-Chocolatier hergestellt werden.",
-  "amenities.garden.title": "Garten & Terrasse",
-  "amenities.garden.description": "Entspannen Sie in unserem friedlichen Garten und auf der Terrasse, einer grünen Oase im Stadtzentrum.",
-  
-  // Events page
-  "events.title": "Veranstaltungen",
-  "events.subtitle": "Schaffen Sie unvergessliche Erinnerungen in unserer historischen Kirche",
-  "events.church.title": "Die Kirche als Veranstaltungsort",
-  "events.church.description": "Unsere wunderschön restaurierte Kirche bietet eine großartige Kulisse für Hochzeiten, Konferenzen und besondere Veranstaltungen.",
-  "events.inquire": "Jetzt anfragen",
-  
-  // Contact page
-  "contact.title": "Kontaktieren Sie uns",
-  "contact.subtitle": "Wir sind für Sie da",
-  "contact.address": "Adresse",
-  "contact.addressValue": "Lange Noordstraat 60, Middelburg",
-  "contact.email": "E-Mail",
-  "contact.emailValue": "info@mildemaerten.nl",
-  "contact.phone": "Telefon",
-  "contact.phoneValue": "+31 123 456 789",
-  "contact.form.name": "Ihr Name",
-  "contact.form.email": "Ihre E-Mail",
-  "contact.form.message": "Ihre Nachricht",
-  "contact.form.submit": "Nachricht senden",
-  
-  // Booking
-  "booking.title": "Buchen Sie Ihren Aufenthalt",
-  "booking.checkIn": "Anreisedatum",
-  "booking.checkOut": "Abreisedatum",
-  "booking.guests": "Gäste",
-  "booking.selectSuite": "Suite auswählen",
-  "booking.firstName": "Vorname",
-  "booking.lastName": "Nachname",
-  "booking.email": "E-Mail",
-  "booking.phone": "Telefon",
-  "booking.specialRequests": "Besondere Wünsche",
-  "booking.confirm": "Buchung bestätigen",
-  "booking.success": "Buchung erfolgreich! Wir haben eine Bestätigung an Ihre E-Mail gesendet.",
-  
-  // Footer
-  "footer.address": "Lange Noordstraat 60, Middelburg",
-  "footer.rights": "Alle Rechte vorbehalten",
-  "footer.privacy": "Datenschutzrichtlinie",
-  "footer.terms": "Nutzungsbedingungen"
+export const getLocale = (locale: string) => {
+  switch (locale) {
+    case 'de':
+      return deDE;
+    case 'nl':
+      return nlNL;
+    default:
+      return enUS;
+  }
 };
 
-export const nl = {
-  // Navigation
-  "nav.home": "Home",
-  "nav.suites": "Suites",
-  "nav.amenities": "Faciliteiten",
-  "nav.events": "Evenementen",
-  "nav.contact": "Contact",
-  "nav.book": "Reserveren",
-  
-  // Home page
-  "home.hero.title": "Hotel de Milde Maerten",
-  "home.hero.subtitle": "Een monumentale ervaring in het hart van Middelburg",
-  "home.hero.cta": "Boek Uw Verblijf",
-  "home.about.title": "Over Ons",
-  "home.about.description": "Het Milde Maerten Hotel is een monumentaal pand in het historische centrum van Middelburg. Ons hotel biedt exclusieve suites, een gezellig koffiecafé, een heerlijke chocolaterie en een rustige tuin met terras. De aangrenzende kerk biedt een unieke locatie voor bijzondere evenementen.",
-  "home.suites.title": "Onze Suites",
-  "home.suites.description": "Ervaar ongeëvenaard comfort in onze zorgvuldig ontworpen suites.",
-  "home.suites.viewAll": "Bekijk Alle Suites",
-  "home.amenities.title": "Hotelfaciliteiten",
-  "home.amenities.description": "Ontdek de unieke voorzieningen van het Milde Maerten Hotel.",
-  "home.amenities.viewAll": "Bekijk Alle Faciliteiten",
-  "home.events.title": "Organiseer Uw Evenementen",
-  "home.events.description": "Onze aangrenzende kerk biedt een bijzondere setting voor bruiloften, conferenties en speciale gelegenheden.",
-  "home.events.learnMore": "Meer Informatie",
-  
-  // Suites page
-  "suites.title": "Onze Suites",
-  "suites.subtitle": "Ervaar de perfecte combinatie van geschiedenis en comfort",
-  "suites.book": "Reserveren",
-  "suites.viewDetails": "Bekijk Details",
-  
-  // Amenities page
-  "amenities.title": "Faciliteiten",
-  "amenities.subtitle": "Geniet van onze premium voorzieningen",
-  "amenities.cafe.title": "Koffiecafé",
-  "amenities.cafe.description": "Geniet van vers gezette koffie en huisgemaakte gebakjes in ons gezellige café.",
-  "amenities.chocolaterie.title": "Chocolaterie",
-  "amenities.chocolaterie.description": "Proef exquise handgemaakte chocolade, vervaardigd door onze meester-chocolatier.",
-  "amenities.garden.title": "Tuin & Terras",
-  "amenities.garden.description": "Ontspan in onze rustige tuin en terras, een groene oase in het stadscentrum.",
-  
-  // Events page
-  "events.title": "Evenementen",
-  "events.subtitle": "Creëer onvergetelijke herinneringen in onze historische kerklocatie",
-  "events.church.title": "De Kerklocatie",
-  "events.church.description": "Onze prachtig gerestaureerde kerk biedt een magnifieke achtergrond voor bruiloften, conferenties en speciale evenementen.",
-  "events.inquire": "Informeer Nu",
-  
-  // Contact page
-  "contact.title": "Contact",
-  "contact.subtitle": "Wij staan voor u klaar",
-  "contact.address": "Adres",
-  "contact.addressValue": "Lange Noordstraat 60, Middelburg",
-  "contact.email": "E-mail",
-  "contact.emailValue": "info@mildemaerten.nl",
-  "contact.phone": "Telefoon",
-  "contact.phoneValue": "+31 123 456 789",
-  "contact.form.name": "Uw Naam",
-  "contact.form.email": "Uw E-mail",
-  "contact.form.message": "Uw Bericht",
-  "contact.form.submit": "Bericht Versturen",
-  
-  // Booking
-  "booking.title": "Boek Uw Verblijf",
-  "booking.checkIn": "Inchecken",
-  "booking.checkOut": "Uitchecken",
-  "booking.guests": "Gasten",
-  "booking.selectSuite": "Selecteer Suite",
-  "booking.firstName": "Voornaam",
-  "booking.lastName": "Achternaam",
-  "booking.email": "E-mail",
-  "booking.phone": "Telefoon",
-  "booking.specialRequests": "Speciale Verzoeken",
-  "booking.confirm": "Bevestig Boeking",
-  "booking.success": "Boeking succesvol! We hebben een bevestiging naar uw e-mail gestuurd.",
-  
-  // Footer
-  "footer.address": "Lange Noordstraat 60, Middelburg",
-  "footer.rights": "Alle rechten voorbehouden",
-  "footer.privacy": "Privacybeleid",
-  "footer.terms": "Gebruiksvoorwaarden"
-};
+export default translations;

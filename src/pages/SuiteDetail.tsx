@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/context/LanguageContext';
@@ -6,7 +5,8 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
 import SuiteBookingWidget from '@/components/SuiteBookingWidget';
-import { suites } from '@/data/hotelData';
+import StarRating from '@/components/StarRating';
+import { suites, reviews } from '@/data/hotelData';
 import { Users, Square, Wifi, Coffee, ShowerHead, Wine } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
@@ -17,6 +17,9 @@ const SuiteDetail = () => {
   const navigate = useNavigate();
   
   const suite = suites.find((s) => s.id === suiteId);
+  
+  // Get reviews for this suite
+  const suiteReviews = reviews.filter(review => review.suiteId === suiteId);
   
   // If suite doesn't exist, redirect to suites page
   useEffect(() => {
@@ -56,7 +59,12 @@ const SuiteDetail = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Suite Details */}
             <div className="lg:col-span-2">
-              <h1 className="font-serif text-3xl mb-2">{suite.name}</h1>
+              <div className="flex justify-between items-start">
+                <h1 className="font-serif text-3xl mb-2">{suite.name}</h1>
+                {suite.rating && (
+                  <StarRating rating={suite.rating} size={20} />
+                )}
+              </div>
               
               <div className="flex items-center gap-4 mb-4 text-sm text-muted-foreground">
                 <div className="flex items-center gap-1">
@@ -112,6 +120,35 @@ const SuiteDetail = () => {
                   <p className="text-muted-foreground">{t('suites.cancellationPolicy')}</p>
                 </div>
               </div>
+              
+              {/* Reviews */}
+              {suiteReviews.length > 0 && (
+                <>
+                  <h2 className="font-serif text-2xl mb-4">{t('suites.reviews')}</h2>
+                  <div className="space-y-6 mb-8">
+                    {suiteReviews.map(review => (
+                      <div key={review.id} className="bg-apple-silver p-4 rounded-md">
+                        <div className="flex items-start gap-4">
+                          <img 
+                            src={review.avatar} 
+                            alt={review.author}
+                            className="w-10 h-10 rounded-full object-cover"
+                          />
+                          <div>
+                            <div className="flex items-center gap-2">
+                              <h4 className="font-medium">{review.author}</h4>
+                              <StarRating rating={review.rating} size={14} />
+                            </div>
+                            <p className="text-sm text-muted-foreground mt-1">
+                              {review.content[language as keyof typeof review.content]}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
             
             {/* Booking Widget */}

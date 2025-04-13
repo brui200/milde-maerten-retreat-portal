@@ -7,6 +7,7 @@ import Hero from '@/components/Hero';
 import SuiteCard from '@/components/SuiteCard';
 import AmenityCard from '@/components/AmenityCard';
 import EventsSection from '@/components/EventsSection';
+import ReviewsSection from '@/components/ReviewsSection';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { suites, amenities } from '@/data/hotelData';
@@ -63,6 +64,9 @@ const Index = () => {
             </div>
           </div>
         </section>
+        
+        {/* Reviews Section */}
+        <ReviewsSection />
         
         {/* Amenities Section */}
         <section className="section-padding bg-white">

@@ -5,6 +5,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Suite } from '@/data/hotelData';
 import { Users, ArrowRight, Square } from 'lucide-react';
+import StarRating from '@/components/StarRating';
 
 interface SuiteCardProps {
   suite: Suite;
@@ -26,6 +27,11 @@ const SuiteCard: React.FC<SuiteCardProps> = ({ suite }) => {
       </Link>
       <div className="p-6">
         <h3 className="text-xl font-serif mb-2">{suite.name}</h3>
+        
+        {suite.rating && (
+          <StarRating rating={suite.rating} size={16} className="mb-2" />
+        )}
+        
         <p className="text-sm text-muted-foreground mb-4">
           {suite.description[language as keyof typeof suite.description]}
         </p>
