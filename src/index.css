@@ -78,4 +78,42 @@
   .glass-effect {
     @apply backdrop-blur-lg bg-white/70 border border-white/20;
   }
+  
+  /* Page transition effects */
+  .page-transition {
+    @apply transition-opacity duration-300 ease-in-out;
+  }
+  
+  .page-enter {
+    @apply opacity-0;
+  }
+  
+  .page-enter-active {
+    @apply opacity-100;
+  }
+  
+  /* Menu and button hover effects */
+  .nav-link {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full;
+  }
+  
+  .btn-hover-effect {
+    @apply transform transition-transform duration-200 hover:scale-105;
+  }
+}
+
+/* Additional animation keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Apply animations to main content */
+main {
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* Ensure proper spacing for pages with fixed navbar */
+.page-content {
+  padding-top: 7rem;
 }

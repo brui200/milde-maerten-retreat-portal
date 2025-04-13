@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -66,13 +67,13 @@ const Booking = () => {
     <>
       <Navbar />
       
-      <main className="pt-24 pb-20 bg-hotel-beige min-h-screen">
+      <main className="page-content min-h-screen bg-hotel-beige pb-20">
         <div className="container-custom">
           {/* Booking steps */}
           <div className="flex items-center justify-center mb-10 text-sm">
             <div className="flex items-center opacity-75">
-              <div className="h-8 w-8 rounded-full bg-primary text-white flex items-center justify-center">
-                <ChevronLeft size={16} className="cursor-pointer" onClick={handleBack} />
+              <div className="h-8 w-8 rounded-full bg-primary text-white flex items-center justify-center transition-transform hover:scale-110 cursor-pointer">
+                <ChevronLeft size={16} onClick={handleBack} />
               </div>
               <span className="ml-2">{t('selectSuiteShort')}</span>
             </div>
@@ -94,7 +95,7 @@ const Booking = () => {
           
           {/* Selected suite information if we have it */}
           {selectedSuite && (
-            <div className="bg-white p-4 rounded-md shadow-sm mb-8">
+            <div className="bg-white p-4 rounded-md shadow-sm mb-8 transition-transform duration-200 hover:shadow-md">
               <div className="flex items-center">
                 <img 
                   src={selectedSuite.images[0]} 
