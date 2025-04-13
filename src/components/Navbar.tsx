@@ -32,7 +32,7 @@ const Navbar = () => {
     >
       <div className="container-custom py-4 md:py-5">
         <div className="flex items-center justify-between">
-          <div className="flex flex-grow md:flex-grow-0">
+          <div className="flex flex-grow items-center">
             {/* Logo and Title on left */}
             <div className="flex items-center">
               <Link to="/" className="flex items-center">
@@ -51,9 +51,9 @@ const Navbar = () => {
             </div>
             
             {/* Navigation menu for desktop */}
-            <div className="hidden md:flex flex-col ml-8">
+            <div className="hidden md:flex flex-col ml-12 flex-grow">
               {/* First row of links */}
-              <div className="flex items-center space-x-8 mb-2">
+              <div className="flex items-center space-x-10 mb-2">
                 {firstRowLinks.map((link) => (
                   <Link 
                     key={link.to} 
@@ -66,7 +66,7 @@ const Navbar = () => {
               </div>
               
               {/* Second row of links */}
-              <div className="flex items-center space-x-8">
+              <div className="flex items-center space-x-10">
                 {secondRowLinks.map((link) => (
                   <Link 
                     key={link.to} 
@@ -81,7 +81,7 @@ const Navbar = () => {
           </div>
           
           {/* Right side items: Language switcher and Booking button */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-4 ml-6">
             <LanguageSwitcher />
             <Link to="/booking">
               <Button className="btn-primary btn-hover-effect">{t('navbar.booking')}</Button>
