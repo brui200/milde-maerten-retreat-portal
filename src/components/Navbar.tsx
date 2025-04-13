@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/context/LanguageContext';
@@ -15,6 +16,7 @@ const Navbar = () => {
     { to: '/', label: t('navbar.home') },
     { to: '/suites', label: t('navbar.suites') },
     { to: '/amenities', label: t('navbar.amenities') },
+    { to: '/history', label: t('navbar.history') },
     { to: '/events', label: t('navbar.events') },
     { to: '/contact', label: t('navbar.contact') },
   ];
