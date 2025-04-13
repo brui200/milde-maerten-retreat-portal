@@ -57,7 +57,7 @@ const Navbar = () => {
                 
                 {/* About Dropdown */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="the button should not have a seperate color. needs to be 100% trnaspartent. there are also 2 chevron dropdown logos. just need one please. \n">
+                  <NavigationMenuTrigger className="">
                     About
                     <ChevronDown className="ml-2 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180" />
                   </NavigationMenuTrigger>
