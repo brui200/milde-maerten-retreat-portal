@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import Navbar from '@/components/Navbar';
@@ -23,7 +22,6 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Validate form
     if (!name || !email || !message) {
       toast({
         title: "Error",
@@ -33,19 +31,16 @@ const Contact = () => {
       return;
     }
     
-    // Simulate form submission
     setIsSubmitting(true);
     
     setTimeout(() => {
       setIsSubmitting(false);
       
-      // Success message
       toast({
         title: "Message Sent",
         description: "Thank you for your message. We'll respond shortly.",
       });
       
-      // Reset form
       setName('');
       setEmail('');
       setMessage('');
@@ -57,19 +52,15 @@ const Contact = () => {
       <Navbar />
       
       <main>
-        {/* Hero Section */}
         <Hero 
           title={t('contact.title')} 
           subtitle={t('contact.subtitle')} 
           fullHeight={false}
-          backgroundImage="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=2670"
         />
         
-        {/* Contact Information and Form */}
         <section className="section-padding bg-white">
           <div className="container-custom">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {/* Contact Information */}
               <div>
                 <h2 className="text-3xl font-serif mb-6">Get in Touch</h2>
                 
@@ -115,7 +106,6 @@ const Contact = () => {
                   </div>
                 </div>
                 
-                {/* Map */}
                 <div className="h-72 bg-hotel-beige rounded-sm overflow-hidden">
                   <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2480.2348840326!2d3.6087922156986814!3d51.49912557963363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c490550073c6f3%3A0x6df59e6e5e2061c6!2sLange%20Noordstraat%2060%2C%204331%20CE%20Middelburg!5e0!3m2!1sen!2snl!4v1649849842429!5m2!1sen!2snl" 
@@ -129,7 +119,6 @@ const Contact = () => {
                 </div>
               </div>
               
-              {/* Contact Form */}
               <div>
                 <h2 className="text-3xl font-serif mb-6">Send a Message</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
