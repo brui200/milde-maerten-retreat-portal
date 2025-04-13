@@ -15,13 +15,15 @@ const SuiteCard: React.FC<SuiteCardProps> = ({ suite }) => {
   
   return (
     <div className="bg-white rounded-sm overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
-      <div className="aspect-[4/3] overflow-hidden">
-        <img 
-          src={suite.images[0]} 
-          alt={suite.name}
-          className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
-        />
-      </div>
+      <Link to={`/suite/${suite.id}`}>
+        <div className="aspect-[4/3] overflow-hidden">
+          <img 
+            src={suite.images[0]} 
+            alt={suite.name}
+            className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+      </Link>
       <div className="p-6">
         <h3 className="text-xl font-serif mb-2">{suite.name}</h3>
         <p className="text-sm text-muted-foreground mb-4">
@@ -45,7 +47,7 @@ const SuiteCard: React.FC<SuiteCardProps> = ({ suite }) => {
             <span className="text-sm text-muted-foreground">/night</span>
           </div>
           <div className="flex gap-2">
-            <Link to={`/suites/${suite.id}`}>
+            <Link to={`/suite/${suite.id}`}>
               <Button variant="outline" size="sm" className="gap-1">
                 {t('suites.viewDetails')}
                 <ArrowRight size={14} />
