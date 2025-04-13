@@ -91,10 +91,10 @@ const Contact = () => {
                     <div>
                       <h3 className="font-medium">{t('contact.email')}</h3>
                       <a 
-                        href="mailto:info@mildemaerten.nl" 
+                        href="mailto:koen@mm.com" 
                         className="text-muted-foreground hover:text-hotel-brown"
                       >
-                        {t('contact.emailValue')}
+                        koen@mm.com
                       </a>
                     </div>
                   </div>
