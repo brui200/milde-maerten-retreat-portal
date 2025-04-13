@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -42,6 +41,9 @@ const Booking = () => {
   
   // Set min checkout date one day after checkin
   const minCheckoutDate = checkInDate ? addDays(checkInDate, 1) : undefined;
+  
+  // Check if dates are selected
+  const datesSelected = checkInDate && checkOutDate;
   
   // Get available suites based on dates
   const getAvailableSuites = () => {
@@ -207,32 +209,38 @@ const Booking = () => {
             )}
           </Card>
           
-          {/* Suites Grid */}
-          {checkInDate && checkOutDate && (
-            <div className="mb-10 animate-fade-in">
-              <h2 className="text-xl font-playfair mb-4">{t('availableSuites')}</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {availableSuites.map((suite) => (
-                  <div 
-                    key={suite.id}
-                    onClick={() => suite.available && setSelectedSuite(suite.id)}
-                    className={`cursor-pointer transform transition duration-200 ${
-                      selectedSuite === suite.id ? 'scale-[1.02]' : ''
-                    } ${
-                      selectedSuite === suite.id ? 'ring-2 ring-primary' : ''
-                    }`}
-                  >
-                    <AirbnbStyleBookingCard 
-                      suite={suite}
-                      initialCheckInDate={checkInDate}
-                      initialCheckOutDate={checkOutDate}
-                      showDetailsButton={true}
-                    />
-                  </div>
-                ))}
+          {/* Suites Grid - Always show but with transparency when dates aren't selected */}
+          <div className="mb-10 animate-fade-in">
+            <h2 className="text-xl font-playfair mb-4">{t('availableSuites')}</h2>
+            
+            {!datesSelected && (
+              <div className="mb-4 p-4 bg-muted rounded-md text-center text-muted-foreground">
+                {t('selectDatesToViewAvailability')}
               </div>
+            )}
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {availableSuites.map((suite) => (
+                <div 
+                  key={suite.id}
+                  onClick={() => datesSelected && suite.available && setSelectedSuite(suite.id)}
+                  className={`cursor-pointer transform transition duration-200 ${
+                    selectedSuite === suite.id ? 'scale-[1.02]' : ''
+                  } ${
+                    selectedSuite === suite.id ? 'ring-2 ring-primary' : ''
+                  }`}
+                >
+                  <AirbnbStyleBookingCard 
+                    suite={suite}
+                    initialCheckInDate={checkInDate}
+                    initialCheckOutDate={checkOutDate}
+                    showDetailsButton={true}
+                    showBookButton={datesSelected}
+                  />
+                </div>
+              ))}
             </div>
-          )}
+          </div>
           
           {/* Checkout Section */}
           {showCheckout && selectedSuite && checkInDate && checkOutDate && (

@@ -10,7 +10,11 @@ interface SuiteBookingWidgetProps {
 const SuiteBookingWidget: React.FC<SuiteBookingWidgetProps> = ({ suite }) => {
   return (
     <div className="sticky top-24">
-      <AirbnbStyleBookingCard suite={suite} showDetailsButton={false} />
+      <AirbnbStyleBookingCard 
+        suite={suite} 
+        showDetailsButton={false}
+        showBookButton={true}
+      />
     </div>
   );
 };

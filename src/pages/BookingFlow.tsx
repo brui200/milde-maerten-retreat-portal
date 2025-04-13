@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -194,103 +193,126 @@ const BookingFlow = () => {
             </div>
           </section>
           
-          {/* Step 2: Suite Selection */}
-          {currentStep >= 2 && (
-            <section id="suites-section" className="mb-16 scroll-mt-24 animate-fadeIn">
-              <h2 className="text-2xl font-playfair mb-6 text-center">{t('availableSuites')}</h2>
-              
-              <div className="space-y-6">
-                {availableSuites.map((suite) => (
-                  <Card 
-                    key={suite.id}
-                    className={`p-0 overflow-hidden transition-all duration-300 hover:shadow-md ${
-                      selectedSuite === suite.id ? 'ring-2 ring-primary' : ''
-                    } ${!suite.available ? 'opacity-70' : ''}`}
-                    onClick={() => suite.available && setSelectedSuite(suite.id)}
-                  >
-                    <div className="flex flex-col md:flex-row">
-                      {/* Suite image */}
-                      <div className="md:w-1/3 h-64 md:h-auto relative">
-                        <img 
-                          src={suite.images[0]} 
-                          alt={suite.name}
-                          className="w-full h-full object-cover"
-                        />
-                        {selectedSuite === suite.id && (
-                          <div className="absolute top-2 right-2 bg-primary text-white p-1 rounded-full">
-                            <Check size={16} />
-                          </div>
-                        )}
-                        {!suite.available && (
-                          <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                            <span className="bg-black/70 text-white px-4 py-2 rounded">
-                              {t('unavailableForDates')}
-                            </span>
-                          </div>
-                        )}
+          {/* Step 2: Suite Selection - Always show, but make non-functional until dates are selected */}
+          <section id="suites-section" className="mb-16 scroll-mt-24 animate-fadeIn">
+            <h2 className="text-2xl font-playfair mb-6 text-center">{t('availableSuites')}</h2>
+            
+            {!datesSelected && (
+              <div className="mb-4 p-4 bg-muted rounded-md text-center text-muted-foreground">
+                {t('selectDatesToViewAvailability')}
+              </div>
+            )}
+            
+            <div className="space-y-6">
+              {availableSuites.map((suite) => (
+                <Card 
+                  key={suite.id}
+                  className={`p-0 overflow-hidden transition-all duration-300 hover:shadow-md ${
+                    selectedSuite === suite.id ? 'ring-2 ring-primary' : ''
+                  } ${!suite.available ? 'opacity-70' : ''} ${!datesSelected ? 'opacity-60' : ''}`}
+                  onClick={() => datesSelected && suite.available && setSelectedSuite(suite.id)}
+                >
+                  <div className="flex flex-col md:flex-row">
+                    {/* Suite image */}
+                    <div className="md:w-1/3 h-64 md:h-auto relative">
+                      <img 
+                        src={suite.images[0]} 
+                        alt={suite.name}
+                        className="w-full h-full object-cover"
+                      />
+                      {selectedSuite === suite.id && (
+                        <div className="absolute top-2 right-2 bg-primary text-white p-1 rounded-full">
+                          <Check size={16} />
+                        </div>
+                      )}
+                      {!suite.available && datesSelected && (
+                        <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                          <span className="bg-black/70 text-white px-4 py-2 rounded">
+                            {t('unavailableForDates')}
+                          </span>
+                        </div>
+                      )}
+                      {!datesSelected && (
+                        <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                          <span className="bg-black/60 text-white px-4 py-2 rounded">
+                            {t('selectDatesFirst')}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                    
+                    {/* Suite details */}
+                    <div className="p-6 md:w-2/3">
+                      <div className="flex justify-between items-start">
+                        <h2 className="text-xl font-playfair mb-2">{suite.name}</h2>
+                        <div>
+                          <span className="font-playfair text-xl">€{suite.price}</span>
+                          <span className="text-sm text-muted-foreground">/night</span>
+                        </div>
                       </div>
                       
-                      {/* Suite details */}
-                      <div className="p-6 md:w-2/3">
-                        <div className="flex justify-between items-start">
-                          <h2 className="text-xl font-playfair mb-2">{suite.name}</h2>
-                          <div>
-                            <span className="font-playfair text-xl">€{suite.price}</span>
-                            <span className="text-sm text-muted-foreground">/night</span>
-                          </div>
+                      <div className="flex items-center gap-4 mb-4 text-sm text-muted-foreground">
+                        <div className="flex items-center gap-1">
+                          <Users size={16} />
+                          <span>{suite.capacity} {suite.capacity === 1 ? t('guest') : t('guests')}</span>
                         </div>
-                        
-                        <div className="flex items-center gap-4 mb-4 text-sm text-muted-foreground">
-                          <div className="flex items-center gap-1">
-                            <Users size={16} />
-                            <span>{suite.capacity} {suite.capacity === 1 ? t('guest') : t('guests')}</span>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <Square size={16} />
-                            <span>{suite.size} m²</span>
-                          </div>
+                        <div className="flex items-center gap-1">
+                          <Square size={16} />
+                          <span>{suite.size} m²</span>
                         </div>
-                        
-                        <p className="text-muted-foreground mb-4 line-clamp-2">
-                          {suite.description.en}
-                        </p>
-                        
-                        <Separator className="my-4" />
-                        
-                        {/* Amenities highlights */}
-                        <div className="grid grid-cols-2 gap-y-2 text-sm">
-                          {suite.amenities.slice(0, 4).map((amenity, index) => (
-                            <div key={index} className="flex items-center gap-2">
-                              <div className="w-1 h-1 bg-primary rounded-full"></div>
-                              <span>{amenity}</span>
-                            </div>
-                          ))}
-                        </div>
-                        
-                        {suite.available && (
-                          <div className="mt-4">
-                            <Button 
-                              onClick={() => setSelectedSuite(suite.id)}
-                              size="sm"
-                              className="btn-primary"
-                            >
-                              {t('selectSuite')}
-                            </Button>
-                          </div>
-                        )}
                       </div>
+                      
+                      <p className="text-muted-foreground mb-4 line-clamp-2">
+                        {suite.description.en}
+                      </p>
+                      
+                      <Separator className="my-4" />
+                      
+                      {/* Amenities highlights */}
+                      <div className="grid grid-cols-2 gap-y-2 text-sm">
+                        {suite.amenities.slice(0, 4).map((amenity, index) => (
+                          <div key={index} className="flex items-center gap-2">
+                            <div className="w-1 h-1 bg-primary rounded-full"></div>
+                            <span>{amenity}</span>
+                          </div>
+                        ))}
+                      </div>
+                      
+                      {datesSelected && suite.available && (
+                        <div className="mt-4">
+                          <Button 
+                            onClick={() => setSelectedSuite(suite.id)}
+                            size="sm"
+                            className="btn-primary"
+                          >
+                            {t('selectSuite')}
+                          </Button>
+                        </div>
+                      )}
+                      
+                      {!datesSelected && (
+                        <div className="mt-4">
+                          <Button 
+                            size="sm"
+                            className="btn-primary"
+                            disabled={true}
+                          >
+                            {t('selectSuite')}
+                          </Button>
+                        </div>
+                      )}
                     </div>
-                  </Card>
-                ))}
+                  </div>
+                </Card>
+              ))}
+            </div>
+            
+            {selectedSuite && (
+              <div className="mt-6 text-center">
+                <ArrowDown className="mx-auto animate-bounce" size={20} />
               </div>
-              
-              {selectedSuite && (
-                <div className="mt-6 text-center">
-                  <ArrowDown className="mx-auto animate-bounce" size={20} />
-                </div>
-              )}
-            </section>
-          )}
+            )}
+          </section>
           
           {/* Step 3: Checkout Form */}
           {currentStep === 3 && (

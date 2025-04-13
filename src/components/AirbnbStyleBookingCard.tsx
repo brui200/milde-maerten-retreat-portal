@@ -18,6 +18,7 @@ interface AirbnbStyleBookingCardProps {
   initialCheckOutDate?: Date;
   onDatesChange?: (checkIn: Date | undefined, checkOut: Date | undefined) => void;
   showDetailsButton?: boolean;
+  showBookButton?: boolean;
   compact?: boolean;
   redirectToCheckout?: boolean;
 }
@@ -28,6 +29,7 @@ const AirbnbStyleBookingCard: React.FC<AirbnbStyleBookingCardProps> = ({
   initialCheckOutDate,
   onDatesChange,
   showDetailsButton = true,
+  showBookButton = true,
   compact = false,
   redirectToCheckout = false,
 }) => {
@@ -102,9 +104,12 @@ const AirbnbStyleBookingCard: React.FC<AirbnbStyleBookingCardProps> = ({
       setCheckOutDate(undefined);
     }
   };
+
+  // Determine if this card should be displayed as non-functional/transparent
+  const isNonFunctional = !checkInDate || !checkOutDate;
   
   return (
-    <Card className={`overflow-hidden ${suite.available === false ? 'opacity-75' : ''}`}>
+    <Card className={`overflow-hidden ${suite.available === false ? 'opacity-75' : ''} ${isNonFunctional && !showDetailsButton ? 'opacity-70' : ''}`}>
       <div className={`p-6 ${compact ? 'space-y-3' : 'space-y-4'}`}>
         <div className="flex justify-between items-start">
           <div>
@@ -232,20 +237,22 @@ const AirbnbStyleBookingCard: React.FC<AirbnbStyleBookingCardProps> = ({
                 </Button>
               )}
               
-              <Button 
-                className="flex-1"
-                onClick={handleBookNow}
-                disabled={!checkInDate || !checkOutDate || isLoading}
-              >
-                {isLoading ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    {t('processing')}
-                  </>
-                ) : (
-                  t('bookNow')
-                )}
-              </Button>
+              {showBookButton && (
+                <Button 
+                  className="flex-1"
+                  onClick={handleBookNow}
+                  disabled={!checkInDate || !checkOutDate || isLoading}
+                >
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      {t('processing')}
+                    </>
+                  ) : (
+                    t('bookNow')
+                  )}
+                </Button>
+              )}
             </div>
           </>
         )}

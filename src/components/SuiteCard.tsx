@@ -79,7 +79,8 @@ const SuiteCard: React.FC<SuiteCardProps> = ({ suite }) => {
             <AirbnbStyleBookingCard 
               suite={suite} 
               compact={true} 
-              showDetailsButton={false} 
+              showDetailsButton={false}
+              showBookButton={true}
               redirectToCheckout={true}
             />
             <Button 
