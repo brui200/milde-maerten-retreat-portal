@@ -3,12 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { useLocation } from 'react-router-dom';
 import { suites } from '@/data/hotelData';
-import { Calendar } from '@/components/ui/calendar';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { 
   Dialog,
@@ -20,28 +17,25 @@ import {
 } from "@/components/ui/dialog";
 import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/components/ui/use-toast';
-import { format, addDays, parseISO } from 'date-fns';
-import { CalendarIcon, CreditCard, CheckCircle, Loader2 } from 'lucide-react';
+import { format, differenceInDays } from 'date-fns';
+import { CreditCard, CheckCircle, Loader2 } from 'lucide-react';
 
-const BookingForm = () => {
+interface BookingFormProps {
+  selectedSuite: string;
+  checkInDate?: Date;
+  checkOutDate?: Date;
+}
+
+const BookingForm: React.FC<BookingFormProps> = ({ 
+  selectedSuite, 
+  checkInDate, 
+  checkOutDate 
+}) => {
   const { t, language } = useLanguage();
   const location = useLocation();
   const { toast } = useToast();
   
-  const queryParams = new URLSearchParams(location.search);
-  const suiteParam = queryParams.get('suite');
-  const checkinParam = queryParams.get('checkin');
-  const checkoutParam = queryParams.get('checkout');
-  const guestsParam = queryParams.get('guests');
-  
-  const [checkInDate, setCheckInDate] = useState<Date | undefined>(
-    checkinParam ? parseISO(checkinParam) : undefined
-  );
-  const [checkOutDate, setCheckOutDate] = useState<Date | undefined>(
-    checkoutParam ? parseISO(checkoutParam) : undefined
-  );
-  const [guests, setGuests] = useState<string>(guestsParam || "2");
-  const [selectedSuite, setSelectedSuite] = useState<string>(suiteParam || "");
+  // Personal info state
   const [firstName, setFirstName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -58,18 +52,15 @@ const BookingForm = () => {
   const [isProcessingPayment, setIsProcessingPayment] = useState<boolean>(false);
   const [paymentComplete, setPaymentComplete] = useState<boolean>(false);
   
-  // Set min checkout date one day after checkin
-  const minCheckoutDate = checkInDate ? addDays(checkInDate, 1) : undefined;
+  // Selected suite data
+  const selectedSuiteData = suites.find(s => s.id === selectedSuite);
   
   // Calculate the total price
   const calculateTotal = () => {
-    if (!checkInDate || !checkOutDate || !selectedSuite) return 0;
+    if (!checkInDate || !checkOutDate || !selectedSuiteData) return 0;
     
-    const suite = suites.find(s => s.id === selectedSuite);
-    if (!suite) return 0;
-    
-    const days = Math.ceil((checkOutDate.getTime() - checkInDate.getTime()) / (1000 * 3600 * 24));
-    return suite.price * days;
+    const days = differenceInDays(checkOutDate, checkInDate);
+    return selectedSuiteData.price * days;
   };
   
   // Format a credit card number with spaces
@@ -141,11 +132,6 @@ const BookingForm = () => {
       // Close dialog after showing success for 1.5 seconds
       setTimeout(() => {
         setShowPaymentDialog(false);
-        // Clear form
-        setCardNumber("");
-        setCardName("");
-        setCardExpiry("");
-        setCardCvc("");
         
         // Show confirmation toast
         toast({
@@ -153,16 +139,16 @@ const BookingForm = () => {
           description: t('booking.success'),
         });
         
-        // Reset booking form
-        setCheckInDate(undefined);
-        setCheckOutDate(undefined);
-        setGuests("2");
-        setSelectedSuite("");
+        // Reset form
         setFirstName("");
         setLastName("");
         setEmail("");
         setPhone("");
         setSpecialRequests("");
+        setCardNumber("");
+        setCardName("");
+        setCardExpiry("");
+        setCardCvc("");
         setPaymentComplete(false);
       }, 1500);
     }, 2000);
@@ -173,7 +159,7 @@ const BookingForm = () => {
     e.preventDefault();
     
     // Validate form
-    if (!checkInDate || !checkOutDate || !firstName || !lastName || !email || !selectedSuite) {
+    if (!firstName || !lastName || !email) {
       toast({
         title: "Error",
         description: "Please fill in all required fields.",
@@ -186,117 +172,11 @@ const BookingForm = () => {
     setShowPaymentDialog(true);
   };
   
-  useEffect(() => {
-    // Auto-populate form fields if data is provided via URL
-    if (suiteParam) {
-      setSelectedSuite(suiteParam);
-    }
-  }, [suiteParam]);
-  
-  // Selected suite data
-  const selectedSuiteData = suites.find(s => s.id === selectedSuite);
-  
   return (
     <div className="max-w-3xl mx-auto">
-      <h2 className="text-3xl font-serif mb-8">{t('booking.title')}</h2>
-      
       <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Booking Details */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Check-in Date */}
-          <div className="space-y-2">
-            <Label htmlFor="checkin">{t('booking.checkIn')}</Label>
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button
-                  variant="outline"
-                  className="w-full justify-start text-left font-normal"
-                  id="checkin"
-                >
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                  {checkInDate ? format(checkInDate, 'PPP') : <span>Select date</span>}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0">
-                <Calendar
-                  mode="single"
-                  selected={checkInDate}
-                  onSelect={setCheckInDate}
-                  initialFocus
-                  disabled={(date) => date < new Date()}
-                  className="p-3 pointer-events-auto"
-                />
-              </PopoverContent>
-            </Popover>
-          </div>
-          
-          {/* Check-out Date */}
-          <div className="space-y-2">
-            <Label htmlFor="checkout">{t('booking.checkOut')}</Label>
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button
-                  variant="outline"
-                  className="w-full justify-start text-left font-normal"
-                  id="checkout"
-                  disabled={!checkInDate}
-                >
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                  {checkOutDate ? format(checkOutDate, 'PPP') : <span>Select date</span>}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0">
-                <Calendar
-                  mode="single"
-                  selected={checkOutDate}
-                  onSelect={setCheckOutDate}
-                  initialFocus
-                  disabled={(date) => 
-                    date < (minCheckoutDate || new Date())
-                  }
-                  className="p-3 pointer-events-auto"
-                />
-              </PopoverContent>
-            </Popover>
-          </div>
-          
-          {/* Number of Guests */}
-          <div className="space-y-2">
-            <Label htmlFor="guests">{t('booking.guests')}</Label>
-            <Select value={guests} onValueChange={setGuests}>
-              <SelectTrigger id="guests">
-                <SelectValue placeholder="Select number of guests" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="1">1</SelectItem>
-                <SelectItem value="2">2</SelectItem>
-                <SelectItem value="3">3</SelectItem>
-                <SelectItem value="4">4</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-          
-          {/* Suite Selection */}
-          <div className="space-y-2">
-            <Label htmlFor="suite">{t('booking.selectSuite')}</Label>
-            <Select value={selectedSuite} onValueChange={setSelectedSuite}>
-              <SelectTrigger id="suite">
-                <SelectValue placeholder="Select a suite" />
-              </SelectTrigger>
-              <SelectContent>
-                {suites.map((suite) => (
-                  <SelectItem key={suite.id} value={suite.id}>
-                    {suite.name} - €{suite.price}/night
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
-        
         {/* Personal Information */}
-        <div className="pt-4 border-t border-muted">
-          <h3 className="text-xl font-serif mb-4">Personal Information</h3>
+        <div className="pt-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* First Name */}
             <div className="space-y-2">
@@ -365,7 +245,7 @@ const BookingForm = () => {
               <div className="flex justify-between">
                 <span>
                   {selectedSuiteData.name} x {
-                    Math.ceil((checkOutDate.getTime() - checkInDate.getTime()) / (1000 * 3600 * 24))
+                    differenceInDays(checkOutDate, checkInDate)
                   } {t('suites.nights')}
                 </span>
                 <span>€{calculateTotal()}</span>
@@ -386,7 +266,7 @@ const BookingForm = () => {
         {/* Submit Button */}
         <Button 
           type="submit" 
-          className="btn-primary w-full md:w-auto px-8"
+          className="btn-primary w-full"
           disabled={isSubmitting}
         >
           {isSubmitting ? (
