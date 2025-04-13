@@ -19,7 +19,7 @@ interface LanguageProviderProps {
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
   const [language, setLanguage] = useState<Language>('en');
   
-  // Use import statements instead of require
+  // Use imported language objects
   const translations: Record<string, Record<string, string>> = {
     en,
     de,

@@ -1,4 +1,5 @@
-import { en as enUS, de as deDE, nl as nlNL } from 'date-fns/locale';
+
+import { enUS, de as deDE, nl as nlNL } from 'date-fns/locale';
 
 const translations = {
   en: {
@@ -344,4 +345,10 @@ export const getLocale = (locale: string) => {
   }
 };
 
+// Export each language object individually
+export const en = translations.en;
+export const de = translations.de;
+export const nl = translations.nl;
+
+// Default export for the whole translations object
 export default translations;
