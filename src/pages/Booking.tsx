@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -235,7 +236,7 @@ const Booking = () => {
                     initialCheckInDate={checkInDate}
                     initialCheckOutDate={checkOutDate}
                     showDetailsButton={true}
-                    showBookButton={datesSelected}
+                    showBookButton={false}
                   />
                 </div>
               ))}
