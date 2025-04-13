@@ -59,6 +59,13 @@ export default {
 					taupe: "#C7BFB4",
 					brown: "#8A7F71",
 					charcoal: "#3A3A3A"
+				},
+				apple: {
+					gray: "#8E9196",
+					silver: "#F1F1F1",
+					darkgray: "#222222",
+					black: "#000000",
+					blue: "#33C3F0"
 				}
 			},
 			borderRadius: {
@@ -86,8 +93,9 @@ export default {
 				'fade-in': 'fade-in 1s ease-out'
 			},
 			fontFamily: {
-				sans: ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+				sans: ['-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
 				serif: ['Georgia', 'serif'],
+				mono: ['SF Mono', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
 			}
 		}
 	},

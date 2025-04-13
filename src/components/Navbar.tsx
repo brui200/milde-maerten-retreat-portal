@@ -38,14 +38,14 @@ const Navbar = () => {
   return (
     <header 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-black/70 backdrop-blur-sm shadow-sm' : 'bg-black/40 backdrop-blur-sm'
+        scrolled ? 'glass-effect shadow-sm' : 'bg-transparent'
       }`}
     >
-      <div className="container-custom py-4 md:py-6">
+      <div className="container-custom py-4 md:py-5">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="text-xl md:text-2xl font-serif tracking-tight text-white">
-            Milde Maerten
+          <Link to="/" className="text-xl md:text-2xl font-medium tracking-tight text-black dark:text-white">
+            Hotel de Milde Maerten
           </Link>
           
           {/* Desktop Navigation */}
@@ -54,7 +54,7 @@ const Navbar = () => {
               <Link 
                 key={link.to} 
                 to={link.to} 
-                className="text-sm text-white hover:text-hotel-cream transition-colors"
+                className="text-sm text-black/80 hover:text-black transition-colors"
               >
                 {link.label}
               </Link>
@@ -70,7 +70,7 @@ const Navbar = () => {
             <LanguageSwitcher />
             <button 
               onClick={toggleMenu}
-              className="text-white focus:outline-none"
+              className="text-black focus:outline-none"
               aria-label="Toggle menu"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -80,12 +80,12 @@ const Navbar = () => {
         
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden pt-6 pb-4 flex flex-col space-y-4 bg-black/90">
+          <nav className="md:hidden pt-6 pb-4 flex flex-col space-y-4 glass-effect mt-2">
             {navLinks.map((link) => (
               <Link 
                 key={link.to} 
                 to={link.to} 
-                className="text-lg text-white py-2"
+                className="text-lg text-black/80 py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.label}
