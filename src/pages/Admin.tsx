@@ -105,7 +105,7 @@ const data = [
 const Admin = () => {
   const { t } = useLanguage();
   const [isLoading, setIsLoading] = React.useState(false)
-  const [date, setDate] = React.useState<DateRange | undefined>({
+  const [date, setDate] = React.useState<DateRange>({
     from: new Date(2023, 0, 20),
     to: addDays(new Date(2023, 0, 20), 10),
   })
