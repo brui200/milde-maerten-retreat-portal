@@ -44,7 +44,7 @@ const Index = () => {
         <section className="section-padding bg-white">
           <div className="container-custom">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-medium mb-4">{t('home.about.title')}</h2>
+              <h2 className="text-3xl md:text-4xl font-medium mb-4 font-playfair">{t('home.about.title')}</h2>
               <p className="text-muted-foreground max-w-xl mx-auto text-justify">{t('home.about.description')}</p>
             </div>
           </div>
@@ -54,7 +54,7 @@ const Index = () => {
         <section className="section-padding bg-apple-silver">
           <div className="container-custom">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-medium mb-4">{t('home.suites.title')}</h2>
+              <h2 className="text-3xl md:text-4xl font-medium mb-4 font-playfair">{t('home.suites.title')}</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto text-justify">{t('home.suites.description')}</p>
             </div>
             
@@ -79,7 +79,7 @@ const Index = () => {
         <section className="section-padding bg-white">
           <div className="container-custom">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-medium mb-4">{t('home.amenities.title')}</h2>
+              <h2 className="text-3xl md:text-4xl font-medium mb-4 font-playfair">{t('home.amenities.title')}</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto text-justify">{t('home.amenities.description')}</p>
             </div>
             

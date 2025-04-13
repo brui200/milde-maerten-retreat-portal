@@ -14,7 +14,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10">
           {/* Logo and description */}
           <div className="col-span-1 md:col-span-1 lg:col-span-1">
-            <Link to="/" className="text-2xl font-serif tracking-tight">
+            <Link to="/" className="text-2xl font-playfair tracking-tight">
               Milde Maerten
             </Link>
             <p className="mt-4 text-hotel-taupe text-sm">
@@ -35,7 +35,7 @@ const Footer = () => {
           
           {/* Contact information */}
           <div className="col-span-1">
-            <h3 className="text-lg font-serif mb-4">Contact</h3>
+            <h3 className="text-lg font-playfair mb-4">Contact</h3>
             <ul className="space-y-3 text-hotel-taupe">
               <li className="flex items-start gap-2">
                 <MapPin size={18} className="mt-0.5 flex-shrink-0" />
@@ -58,7 +58,7 @@ const Footer = () => {
           
           {/* Quick links */}
           <div className="col-span-1">
-            <h3 className="text-lg font-serif mb-4">Quick Links</h3>
+            <h3 className="text-lg font-playfair mb-4">Quick Links</h3>
             <ul className="space-y-2 text-hotel-taupe">
               <li>
                 <Link to="/suites" className="hover:text-white transition-colors">
@@ -90,7 +90,7 @@ const Footer = () => {
           
           {/* Newsletter */}
           <div className="col-span-1">
-            <h3 className="text-lg font-serif mb-4">Stay Updated</h3>
+            <h3 className="text-lg font-playfair mb-4">Stay Updated</h3>
             <p className="text-hotel-taupe text-sm mb-4">
               Subscribe to our newsletter for special offers and updates.
             </p>

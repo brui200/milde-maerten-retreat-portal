@@ -34,7 +34,7 @@ const Amenities = () => {
                   alt={amenities[0].name.en}
                   className="w-full h-64 object-cover mb-6 rounded-sm"
                 />
-                <h3 className="text-2xl font-serif mb-2">{t('amenities.cafe.title')}</h3>
+                <h3 className="text-2xl font-medium mb-2 font-playfair">{t('amenities.cafe.title')}</h3>
                 <p className="text-muted-foreground">{t('amenities.cafe.description')}</p>
                 <div className="mt-4 grid grid-cols-2 gap-2 text-sm text-muted-foreground">
                   <div>
@@ -55,7 +55,7 @@ const Amenities = () => {
                   alt={amenities[1].name.en}
                   className="w-full h-64 object-cover mb-6 rounded-sm"
                 />
-                <h3 className="text-2xl font-serif mb-2">{t('amenities.chocolaterie.title')}</h3>
+                <h3 className="text-2xl font-medium mb-2 font-playfair">{t('amenities.chocolaterie.title')}</h3>
                 <p className="text-muted-foreground">{t('amenities.chocolaterie.description')}</p>
                 <div className="mt-4 grid grid-cols-2 gap-2 text-sm text-muted-foreground">
                   <div>
@@ -80,7 +80,7 @@ const Amenities = () => {
                   alt={amenities[2].name.en}
                   className="w-full h-64 object-cover mb-6 rounded-sm"
                 />
-                <h3 className="text-2xl font-serif mb-2">{t('amenities.garden.title')}</h3>
+                <h3 className="text-2xl font-medium mb-2 font-playfair">{t('amenities.garden.title')}</h3>
                 <p className="text-muted-foreground">{t('amenities.garden.description')}</p>
                 <div className="mt-4 grid grid-cols-2 gap-2 text-sm text-muted-foreground">
                   <div>
@@ -102,7 +102,7 @@ const Amenities = () => {
                   alt={amenities[3].name.en}
                   className="w-full h-64 object-cover mb-6 rounded-sm"
                 />
-                <h3 className="text-2xl font-serif mb-2">{t('events.church.title')}</h3>
+                <h3 className="text-2xl font-medium mb-2 font-playfair">{t('events.church.title')}</h3>
                 <p className="text-muted-foreground">{t('events.church.description')}</p>
                 <div className="mt-4 grid grid-cols-2 gap-2 text-sm text-muted-foreground">
                   <div>

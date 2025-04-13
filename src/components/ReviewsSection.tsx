@@ -22,7 +22,7 @@ const ReviewsSection: React.FC = () => {
     <section className="section-padding bg-apple-silver">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-medium mb-2">
+          <h2 className="text-3xl md:text-4xl font-medium mb-2 font-playfair">
             {t('home.reviews.title')}
           </h2>
           

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import Navbar from '@/components/Navbar';
@@ -62,7 +63,7 @@ const Contact = () => {
           <div className="container-custom">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               <div>
-                <h2 className="text-3xl font-serif mb-6">Get in Touch</h2>
+                <h2 className="text-3xl font-playfair mb-6">Get in Touch</h2>
                 
                 <div className="space-y-6 mb-8">
                   <div className="flex gap-4">
@@ -120,7 +121,7 @@ const Contact = () => {
               </div>
               
               <div>
-                <h2 className="text-3xl font-serif mb-6">Send a Message</h2>
+                <h2 className="text-3xl font-playfair mb-6">Send a Message</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-2">
                     <Label htmlFor="name">{t('contact.form.name')}</Label>

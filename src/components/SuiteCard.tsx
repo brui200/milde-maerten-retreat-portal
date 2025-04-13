@@ -26,7 +26,7 @@ const SuiteCard: React.FC<SuiteCardProps> = ({ suite }) => {
         </div>
       </Link>
       <div className="p-6">
-        <h3 className="text-xl font-serif mb-2">{suite.name}</h3>
+        <h3 className="text-xl font-medium mb-2 font-playfair">{suite.name}</h3>
         
         {suite.rating && (
           <StarRating rating={suite.rating} size={16} className="mb-2" />
@@ -49,7 +49,7 @@ const SuiteCard: React.FC<SuiteCardProps> = ({ suite }) => {
         
         <div className="flex justify-between items-center pt-4 border-t border-muted">
           <div>
-            <span className="font-serif text-xl">€{suite.price}</span>
+            <span className="font-playfair text-xl">€{suite.price}</span>
             <span className="text-sm text-muted-foreground">/night</span>
           </div>
           <div className="flex gap-2">
