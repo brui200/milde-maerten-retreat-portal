@@ -39,7 +39,7 @@ const translations = {
     },
     home: {
       hero: {
-        title: "!!Experience the Charm of Middelburg",
+        title: "Experience the Charm of Middelburg",
         subtitle: "Discover a unique blend of history and luxury at our boutique hotel in the heart of Zeeland.",
         cta: "Book Your Stay",
       },
