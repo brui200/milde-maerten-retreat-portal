@@ -19,6 +19,7 @@ interface AirbnbStyleBookingCardProps {
   onDatesChange?: (checkIn: Date | undefined, checkOut: Date | undefined) => void;
   showDetailsButton?: boolean;
   compact?: boolean;
+  redirectToCheckout?: boolean;
 }
 
 const AirbnbStyleBookingCard: React.FC<AirbnbStyleBookingCardProps> = ({
@@ -28,6 +29,7 @@ const AirbnbStyleBookingCard: React.FC<AirbnbStyleBookingCardProps> = ({
   onDatesChange,
   showDetailsButton = true,
   compact = false,
+  redirectToCheckout = false,
 }) => {
   const { t } = useLanguage();
   const navigate = useNavigate();
@@ -77,11 +79,19 @@ const AirbnbStyleBookingCard: React.FC<AirbnbStyleBookingCardProps> = ({
     
     setIsLoading(true);
     
-    // Navigate to booking page with selected dates
-    setTimeout(() => {
-      setIsLoading(false);
-      navigate(`/booking?suite=${suite.id}&checkin=${checkInDate.toISOString()}&checkout=${checkOutDate.toISOString()}`);
-    }, 500);
+    // If redirectToCheckout is true, navigate to checkout page instead of booking page
+    if (redirectToCheckout) {
+      setTimeout(() => {
+        setIsLoading(false);
+        navigate(`/checkout?suiteId=${suite.id}&checkIn=${checkInDate.toISOString()}&checkOut=${checkOutDate.toISOString()}`);
+      }, 500);
+    } else {
+      // Navigate to booking page with selected dates (original behavior)
+      setTimeout(() => {
+        setIsLoading(false);
+        navigate(`/booking?suite=${suite.id}&checkin=${checkInDate.toISOString()}&checkout=${checkOutDate.toISOString()}`);
+      }, 500);
+    }
   };
   
   // Handle check in date change
