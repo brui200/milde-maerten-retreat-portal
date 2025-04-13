@@ -38,8 +38,8 @@ const Hero: React.FC<HeroProps> = ({
       
       {/* Content with improved contrast */}
       <div className="container-custom relative z-10 text-white">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white">
+        <div className="max-w-3xl fade-in">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white">
             {title || t('home.hero.title')}
           </h1>
           <p className="mt-4 text-lg md:text-xl text-white">

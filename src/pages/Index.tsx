@@ -23,8 +23,9 @@ const Index = () => {
       <Navbar />
       
       <main>
-        {/* Hero Section */}
+        {/* Hero Section with explicit background image */}
         <Hero 
+          backgroundImage="/lovable-uploads/3a652c95-3db8-42d1-92f2-d334b48d2025.png"
           title={t('home.hero.title')} 
           subtitle={t('home.hero.subtitle')} 
           ctaText={t('home.hero.cta')} 

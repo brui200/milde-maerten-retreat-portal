@@ -44,7 +44,7 @@ const Navbar = () => {
       <div className="container-custom py-4 md:py-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="text-xl md:text-2xl font-serif tracking-tight text-white font-bold">
+          <Link to="/" className="text-xl md:text-2xl font-serif tracking-tight text-white">
             Milde Maerten
           </Link>
           
