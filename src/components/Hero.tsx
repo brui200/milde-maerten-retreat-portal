@@ -33,8 +33,8 @@ const Hero: React.FC<HeroProps> = ({
         backgroundRepeat: 'no-repeat'
       }}
     >
-      {/* Overlay with increased opacity for better text visibility */}
-      <div className="absolute inset-0 bg-black/50"></div>
+      {/* Overlay with reduced opacity for better image visibility */}
+      <div className="absolute inset-0 bg-black/30"></div>
       
       {/* Content with improved contrast */}
       <div className="container-custom relative z-10 text-white">
