@@ -1,3 +1,5 @@
+#Project for creating a website for an Hotel including booking tool
+
 # Welcome to your Lovable project
 
 ## Project info
